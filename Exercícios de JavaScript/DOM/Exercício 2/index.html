@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>Praticando o DOM</title>
+</head>
+<body>
+    <h1>Sistema de Cadastro de Imóveis</h1>
+    <form id='cadastroImoveis'>
+        <p>
+            <label>Informe o tipo do imóvel: </label>
+           <input type="radio" name="immobile" value="Casa"> Casa
+           <input type="radio" name="immobile" value="Apartamento"> Apartamento
+        </p>
+        <p>
+            <label>Informe a área do imóvel: </label>
+            <input type="text" name="area" id="area">
+        </p>
+        <p>
+            <label>Está alugado? </label>
+            <input type="radio" name="rented" value="Sim"> Sim
+            <input type="radio" name="rented" value="Não"> Não
+        </p>
+        <p>
+            <button type="button" onclick="sendImmobile()">Salvar</button>
+            <button type="button" onclick="clean()">Limpar</button>
+        </p>
+       
+    </form>
+    <h2>Imóveis cadastrados:</h2>
+    <p id="res"></p>
+</body>
+</html>
