@@ -1,4 +1,4 @@
-let vaga = []
+const vaga = []
 let obj;
 
 function listVagasDisp(){
@@ -17,19 +17,18 @@ function newVaga(){
     obj.describe = prompt('Digite uma descrição para a vaga.')
     obj.limitDate = prompt('Informe a data limite para fazer a inscrição (No formato dd/mm/aaaa).')
     obj.candidato = []
-    let save = confirm(`Deseja salvar vaga? (Clique em "OK" para confirmar)\n\nVaga: ${obj.name}\nDescrição: ${obj.describe}\nData limite para fazer a inscrição: ${obj.limitDate}`)
+    const save = confirm(`Deseja salvar vaga? (Clique em "OK" para confirmar)\n\nVaga: ${obj.name}\nDescrição: ${obj.describe}\nData limite para fazer a inscrição: ${obj.limitDate}`)
     if(save){
         vaga.push(obj)
         alert('Vaga adicionada com sucesso.')
     } else {
         alert('Vaga não adicionada. Retornando ao menu.')
     }
-    console.log(vaga)
 }
 
 function viewVaga(){
     if(vaga.length > 0){
-        let indc = Number(prompt('Informe por favor a posição da vaga.'))
+        const indc = Number(prompt('Informe por favor a posição da vaga.'))
         if(indc > vaga.length || indc < 0){
             alert('Essa posição não existe.')
         } else {
@@ -42,9 +41,9 @@ function viewVaga(){
 
 function subscribe(){
     if(vaga.length > 0){
-        let newCandidato = prompt('Informe o nome do(a) candidato(a).')
-        let indc = Number(prompt('Qual a posição da vaga?'))
-        let save = confirm(`Deseja salvar inscrição do(a) candidato(a) na vaga "${vaga[indc-1].name}"? (Clique em "OK" para confirmar)\n\nNome do(a) candidato(a): ${newCandidato}`)
+        const newCandidato = prompt('Informe o nome do(a) candidato(a).')
+        const indc = Number(prompt('Qual a posição da vaga?'))
+        const save = confirm(`Deseja salvar inscrição do(a) candidato(a) na vaga "${vaga[indc-1].name}"? (Clique em "OK" para confirmar)\n\nNome do(a) candidato(a): ${newCandidato}`)
         if(save){
             vaga[indc-1].candidato.push(newCandidato)
             alert('Inscrição salva com sucesso!')
@@ -58,8 +57,8 @@ function subscribe(){
 
 function removVaga(){
     if(vaga.length > 0){
-        let indc = Number(prompt('Qual a posição da vaga que você deseja excluir?'))-1
-        let save = confirm(`Deseja excluir a vaga "${vaga[indc].name}"? (Clique em "OK" para confirmar)\n\nVaga ${indc+1}\nDescrição: ${vaga[indc].describe}\nData limite para fazer a inscrição: ${vaga[indc].limitDate}\nQuantidade de candidatos: ${vaga[indc].candidato.length} inscrito(s)\nNome dos candidatos: ${vaga[indc].candidato.join(' | ')}`)
+        const indc = Number(prompt('Qual a posição da vaga que você deseja excluir?'))-1
+        const save = confirm(`Deseja excluir a vaga "${vaga[indc].name}"? (Clique em "OK" para confirmar)\n\nVaga ${indc+1}\nDescrição: ${vaga[indc].describe}\nData limite para fazer a inscrição: ${vaga[indc].limitDate}\nQuantidade de candidatos: ${vaga[indc].candidato.length} inscrito(s)\nNome dos candidatos: ${vaga[indc].candidato.join(' | ')}`)
         if(save){
             vaga.splice(indc, 1)
             alert('Vaga deletada com sucesso!')
