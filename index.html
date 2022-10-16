@@ -7,6 +7,58 @@
     <title>Teste</title>
 </head>
 <body>
-   <h1></h1>
+   <h1>Agenda Telefônica</h1>
+   <hr>
+   <button onclick="add()">Adicionar</button>
+   <section id="res"></section>
+
+   <script>
+    function add(){
+        const result = document.getElementById('res')
+
+        const h3 = document.createElement('h3')
+        h3.innerText = `Contato`
+
+        const ul = document.createElement('ul')
+
+        const nameLi = document.createElement('li')
+        nameLi.innerText = `Nome: `
+        const nameInput = document.createElement('input')
+        nameInput.type = 'text'
+        nameLi.appendChild(nameInput)
+        ul.appendChild(nameLi) 
+        ul.appendChild(document.createElement('br'))
+
+        const numberLi = document.createElement('li')
+        numberLi.innerText = `Telefone: `
+        const numberInput = document.createElement('input')
+        numberInput.type = 'number'
+        numberLi.appendChild(numberInput)
+        ul.appendChild(numberLi) 
+        ul.appendChild(document.createElement('br'))
+
+        const addressLi = document.createElement('li')
+        addressLi.innerText = `Endereço: `
+        const addressInput = document.createElement('input')
+        addressInput.type = 'text'
+        addressLi.appendChild(addressInput)
+        ul.appendChild(addressLi)
+
+        const btn = document.createElement('button')
+        btn.innerText = `Remover`
+        btn.setAttribute('onclick', 'remov(this)')
+
+        const div = document.createElement('div')
+        div.id = 'ctt'
+
+        div.append(h3, ul, btn)
+        result.appendChild(div)
+    }
+
+    function remov(element){
+        const div = document.querySelector('#ctt')
+        element.parentNode.remove(div)
+    }
+   </script>
 </body>
 </html>
