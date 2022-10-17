@@ -19,9 +19,6 @@ function sendImmobile(){
     btnRemove.setAttribute('onclick', 'immobileRemove(this)')
     btnRemove.innerText = 'Remover'
     clone.appendChild(btnRemove)
-}
-
-function clean(){
     document.querySelector('#cadastroImoveis').reset()
 }
 

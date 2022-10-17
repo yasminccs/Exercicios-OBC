@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <style>
+        body{
+            font: normal 15px Arial;
+        }
+    </style>
+    <title>Escalação de Jogadores</title>
+</head>
+<body>
+    <h1>Escalação de Jogadores</h1>
+    <hr>
+    <form id="sendPlayers">
+        <ul>
+        <li>
+            <p>
+                <label>Posição do jogador: </label>
+                <input type="text" name="positionPlayer" id="positionPlayer">
+            </p>
+        </li>
+        <li>
+            <p>
+                <label>Nome do jogador: </label>
+                <input type="text" name="namePlayer" id="namePlayer">
+            </p>
+        </li>
+        <li>
+            <p>
+                <label>Número da camisa: </label>
+                <input type="number" name="shirtPlayer" id="shirtPlayer">
+            </p>
+            </li>
+        </ul>
+
+        <button type="button" onclick="scale()">Escalar</button>
+    </form>
+    <section id="res">
+        <h2>Time: Jogadores Escalados</h2>
+    </section>
+</body>
+</html>
