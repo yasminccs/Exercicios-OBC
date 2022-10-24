@@ -23,6 +23,7 @@
             input01.name = "experience"
             input01.id = 'in1'
             input01.value = '0-2 anos'
+            input01.setAttribute('onchange', 'md()')
             const label01 = document.createElement('label')
             label01.innerText = ' 0-2 anos'
 
@@ -31,6 +32,7 @@
             input02.name = "experience"
             input02.id = 'in2'
             input02.value = '3-4 anos'
+            input02.setAttribute('onchange', 'md()')
             const label02 = document.createElement('label')
             label02.innerText = ' 3-4 anos'
 
@@ -39,12 +41,15 @@
             input03.name = "experience"
             input03.id = 'in3'
             input03.value = '5+ anos'
+            input03.setAttribute('onchange', 'md()')
             const label03 = document.createElement('label')
             label03.innerText = ' 5+ anos'
 
             p.append(label, input01, label01, input02, label02, input03, label03)
             res.append(p)
+        }
 
+        function md(){
             let arr = []
            document.querySelectorAll('input[name="experience"]:checked').forEach(element => {
             arr.push(element.value)
