@@ -14,6 +14,7 @@ function send(ev){
     let inputText = document.createElement('input')
     inputText.type = 'text'
     inputText.id = 'nameText'
+    inputText.setAttribute('onchange', 'inputTech()')
     
     const br = document.createElement('br')
     const br2 = document.createElement('br')
@@ -48,12 +49,14 @@ function send(ev){
 
     result.appendChild(p)
     p.append(label, inputText, labelRadio, inputRadio1, labelR1, inputRadio2, labelR2, inputRadio3, labelR3, br, br2, btn)
-    
-    let lala = []
-    document.querySelectorAll('#nameText').forEach(function (element){ 
-        lala.push(element.value)
+}
+
+function inputTech(){
+    let arrLinguage = []
+    document.querySelectorAll('#nameText').forEach(element => { 
+        arrLinguage.push(element.value)
     })
-    console.log(lala)
+    console.log(arrLinguage)
 }
 
 function remov(element){
