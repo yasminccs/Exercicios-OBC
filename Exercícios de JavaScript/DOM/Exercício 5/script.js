@@ -22,26 +22,26 @@ function send(ev){
     const labelRadio = document.createElement('label')
     labelRadio.innerHTML = ' | Tempo de experiência: '
 
-    const inputRadio1 = document.createElement('input')
+    let inputRadio1 = document.createElement('input')
     inputRadio1.type = 'radio'
     inputRadio1.id = '0-2years'
-    inputRadio1.class = 'experience'
+    inputRadio1.name = 'experience'
     inputRadio1.value = '0-2 anos'
     const labelR1 = document.createElement('label')
     labelR1.innerText = ' 0-2 anos'
     
-    const inputRadio2 = document.createElement('input')
+    let inputRadio2 = document.createElement('input')
     inputRadio2.type = 'radio'
     inputRadio2.id = '3-4years'
-    inputRadio2.class = 'experience'
+    inputRadio2.name = 'experience'
     inputRadio2.value = '3-4 anos'
     const labelR2 = document.createElement('label')
     labelR2.innerText = ' 3-4 anos'
     
-    const inputRadio3 = document.createElement('input')
+    let inputRadio3 = document.createElement('input')
     inputRadio3.type = 'radio'
     inputRadio3.id = '5plusYears'
-    inputRadio3.class = 'experience'
+    inputRadio3.name = 'experience'
     inputRadio3.value = '5+ anos'
     const labelR3 = document.createElement('label')
     labelR3.innerText = ' 5+ anos'
