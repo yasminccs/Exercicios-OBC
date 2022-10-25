@@ -16,9 +16,11 @@
             const p = document.createElement('p')
 
             let input01 = document.createElement('input')
-            input01.setAttribute('type', 'radio')
-            input01.setAttribute('name', "experience")
-            input01.setAttribute('value', '0-2 years')
+            input01.type = 'radio'
+            input01.name = "experience"
+            input01.id = 'in1'
+            input01.value = '0-2 anos'
+            input01.setAttribute('onchange', 'md()')
             const label01 = document.createElement('label')
             label01.innerText = ' 0-2 anos'
 
