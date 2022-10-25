@@ -11,13 +11,14 @@
     <br><br>
     <section id="res"></section>
     <script>
+        let rows = 0
         function send(){
             const res = document.querySelector('#res')
             const p = document.createElement('p')
 
             let input01 = document.createElement('input')
             input01.type = 'radio'
-            input01.name = "experience"
+            input01.name = rows + '-experience'
             input01.id = 'in1'
             input01.value = '0-2 anos'
             input01.setAttribute('onchange', 'md()')
@@ -26,7 +27,7 @@
 
             let input02 = document.createElement('input')
             input02.type = 'radio'
-            input02.name = "experience"
+            input02.name = rows + '-experience'
             input02.id = 'in2'
             input02.value = '3-4 anos'
             input02.setAttribute('onchange', 'md()')
@@ -35,7 +36,7 @@
 
             let input03 = document.createElement('input')
             input03.type = 'radio'
-            input03.name = "experience"
+            input03.name = rows + '-experience'
             input03.id = 'in3'
             input03.value = '5+ anos'
             input03.setAttribute('onchange', 'md()')
@@ -44,11 +45,12 @@
 
             p.append(input01, label01, input02, label02, input03, label03)
             res.appendChild(p)
+            rows++
         }
 
         function md(){
             let arr = []
-           document.querySelectorAll('input[name="experience"]:checked').forEach(element => {
+           document.querySelectorAll('p > input:checked').forEach(element => {
             arr.push(element.value)
            })
             console.log(arr)
