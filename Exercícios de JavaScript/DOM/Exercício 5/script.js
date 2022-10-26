@@ -1,6 +1,7 @@
 const form = document.querySelector('#form')
 form.addEventListener('submit', send)
-let rows = 0
+let newRows = 0
+
 function send(ev){
     ev.preventDefault()
     const result = document.querySelector('#addLinguage')
@@ -8,13 +9,14 @@ function send(ev){
     const namePerson = document.querySelector('#name').value
 
     const p = document.createElement('p')
+    p.id = 'paragraph-' + newRows
 
     const label = document.createElement('label')
     label.innerText = 'Tecnologia: '
 
     let inputText = document.createElement('input')
     inputText.type = 'text'
-    inputText.id = 'nameText'
+    inputText.id = 'nameText-' + newRows 
     inputText.setAttribute('onchange', 'inputTech()')
     
     const br = document.createElement('br')
@@ -25,7 +27,7 @@ function send(ev){
 
     let inputRadio1 = document.createElement('input')
     inputRadio1.type = 'radio'
-    inputRadio1.name = rows + '-experience'
+    inputRadio1.name = 'experience-' + newRows
     inputRadio1.value = '0-2 anos'
     inputRadio1.setAttribute('onchange', 'experienceTime()')
     const labelR1 = document.createElement('label')
@@ -33,7 +35,7 @@ function send(ev){
     
     let inputRadio2 = document.createElement('input')
     inputRadio2.type = 'radio'
-    inputRadio2.name = rows + '-experience'
+    inputRadio2.name = 'experience-' + newRows
     inputRadio2.value = '3-4 anos'
     inputRadio2.setAttribute('onchange', 'experienceTime()')
     const labelR2 = document.createElement('label')
@@ -41,7 +43,7 @@ function send(ev){
     
     let inputRadio3 = document.createElement('input')
     inputRadio3.type = 'radio'
-    inputRadio3.name = rows + '-experience'
+    inputRadio3.name = 'experience-' + newRows
     inputRadio3.value = '5+ anos'
     inputRadio3.setAttribute('onchange', 'experienceTime()')
     const labelR3 = document.createElement('label')
@@ -49,11 +51,12 @@ function send(ev){
     
     const btn = document.createElement('button')
     btn.innerText = 'Remover'
+    btn.id = 'btnRemove-' +  newRows
     btn.setAttribute('onclick', 'remov(this)')
 
     result.appendChild(p)
     p.append(label, inputText, labelRadio, inputRadio1, labelR1, inputRadio2, labelR2, inputRadio3, labelR3, br, br2, btn)
-    rows++
+    newRows++
 }
 
 function inputTech(){
@@ -80,5 +83,5 @@ btnSave.addEventListener('click', save)
 
 function save(){
     alert('Dados salvos com sucesso.')
-    form.reset()
+    form.value = ''
 }
