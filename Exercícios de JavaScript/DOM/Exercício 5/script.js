@@ -1,87 +1,82 @@
+function createLabel (text, htmlFor){
+    const label = document.createElement('label')
+    label.htmlFor = htmlFor
+    label.innerText = text
+    return label
+}
+
+function createInput (value, name, id, type='text'){
+    const input = document.createElement('input')
+    input.value = value
+    input.name = name
+    input.id = id
+    input.type = type
+    return input
+}
+
 const form = document.querySelector('#form')
+const result = document.querySelector('#addLinguage')
+const btnAddTech = document.querySelector('#addTech')
+btnAddTech.addEventListener('click', addTech)
+let developers = []
+let rows = 0
+
+function addTech(){
+    const p = document.createElement('p')
+    p.id = 'group-' + rows
+    p.className = 'gp'
+
+    const labelTechName = createLabel('Tecnologia: ', 'tecnologies-' + rows)
+    const inputTechName = createInput(null, 'techName', 'techName-' + rows)
+
+    const labelExpTime = createLabel(' | Tempo de experiência: ', 'expTime-' + rows)
+
+    const id1 = 'yearsExp-' + rows + '.1'
+    const inputExpTime1 = createInput('0-2 anos', 'gpRadio-' + rows, id1, 'radio')
+    const labelExpTime1 = createLabel(' 0-2 anos', id1)
+
+    const id2 = 'yearsExp-' + rows + '.2'
+    const inputExpTime2 = createInput('3-4 anos', 'gpRadio-' + rows, id2, 'radio')
+    const labelExpTime2 = createLabel(' 3-4 anos', id2)
+
+    const id3 = 'yearsExp-' + rows +'.3'
+    const inputExpTime3 = createInput('5+ anos', 'gpRadio-' + rows, id3, 'radio')
+    const labelExpTime3 = createLabel(' 5+ anos', id3)
+
+    const btnRemove = document.createElement('button')
+    btnRemove.type = 'button'
+    btnRemove.innerText = 'Remover'
+    btnRemove.style.marginLeft = '10px'
+    btnRemove.setAttribute('onlcick', 'remov(this)')
+    btnRemove.addEventListener('click', function (){
+        result.removeChild(p)
+    })
+
+    result.appendChild(p)
+    p.append(labelTechName, inputTechName, labelExpTime, inputExpTime1, labelExpTime1, inputExpTime2, labelExpTime2, inputExpTime3, labelExpTime3, btnRemove)
+    rows++
+}
+
 form.addEventListener('submit', send)
-let newRows = 0
 
 function send(ev){
     ev.preventDefault()
-    const result = document.querySelector('#addLinguage')
 
-    const namePerson = document.querySelector('#name').value
+    const fullName = document.querySelector('#name')
+    const pResult = document.querySelectorAll('.gp')
 
-    const p = document.createElement('p')
-    p.id = 'paragraph-' + newRows
+    let technologies = []
+    pResult.forEach(row => {
+        const techName = document.querySelector('#' + row.id + ' input[name="techName"]').value
+        const techExp = document.querySelector('#' + row.id + ' input[type="radio"]:checked').value
+        technologies.push({name: techName, exp: techExp})
 
-    const label = document.createElement('label')
-    label.innerText = 'Tecnologia: '
-
-    let inputText = document.createElement('input')
-    inputText.type = 'text'
-    inputText.id = 'nameText-' + newRows 
-    inputText.setAttribute('onchange', 'inputTech()')
-    
-    const br = document.createElement('br')
-    const br2 = document.createElement('br')
-
-    const labelRadio = document.createElement('label')
-    labelRadio.innerHTML = ' | Tempo de experiência: '
-
-    let inputRadio1 = document.createElement('input')
-    inputRadio1.type = 'radio'
-    inputRadio1.name = 'experience-' + newRows
-    inputRadio1.value = '0-2 anos'
-    inputRadio1.setAttribute('onchange', 'experienceTime()')
-    const labelR1 = document.createElement('label')
-    labelR1.innerText = ' 0-2 anos'
-    
-    let inputRadio2 = document.createElement('input')
-    inputRadio2.type = 'radio'
-    inputRadio2.name = 'experience-' + newRows
-    inputRadio2.value = '3-4 anos'
-    inputRadio2.setAttribute('onchange', 'experienceTime()')
-    const labelR2 = document.createElement('label')
-    labelR2.innerText = ' 3-4 anos'
-    
-    let inputRadio3 = document.createElement('input')
-    inputRadio3.type = 'radio'
-    inputRadio3.name = 'experience-' + newRows
-    inputRadio3.value = '5+ anos'
-    inputRadio3.setAttribute('onchange', 'experienceTime()')
-    const labelR3 = document.createElement('label')
-    labelR3.innerText = ' 5+ anos'
-    
-    const btn = document.createElement('button')
-    btn.innerText = 'Remover'
-    btn.id = 'btnRemove-' +  newRows
-    btn.setAttribute('onclick', 'remov(this)')
-
-    result.appendChild(p)
-    p.append(label, inputText, labelRadio, inputRadio1, labelR1, inputRadio2, labelR2, inputRadio3, labelR3, br, br2, btn)
-    newRows++
-}
-
-function inputTech(){
-    let arrLinguage = []
-    document.querySelectorAll('#nameText').forEach(element => { 
-        arrLinguage.push(element.value)
     })
-}
 
-function experienceTime(){
-    let arrExperienceTime = []
-    document.querySelectorAll('p > input:checked').forEach(element => {
-        arrExperienceTime.push(element.value)
-    })
-}
+    const newDev = {fullName: fullName.value, technologies: technologies}
+    developers.push(newDev)
 
-function remov(element){
-    const p = document.createElement('p')
-    element.parentNode.remove(p)
-}
-
-const btnSave = document.querySelector('#save')
-btnSave.addEventListener('click', save)
-
-function save(){
-    alert('Dados salvos com sucesso.')
-    form.value = ''
+    alert('Dev cadastrado(a) com sucesso!')
+    form.reset()
+    result.innerText = " "
 }
