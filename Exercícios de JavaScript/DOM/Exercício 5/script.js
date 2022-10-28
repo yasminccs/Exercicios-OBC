@@ -54,6 +54,7 @@ function addTech(){
 
     result.appendChild(p)
     p.append(labelTechName, inputTechName, labelExpTime, inputExpTime1, labelExpTime1, inputExpTime2, labelExpTime2, inputExpTime3, labelExpTime3, btnRemove)
+    
     rows++
 }
 

@@ -4,57 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tst</title>
+    <style>
+        .is-light{background-color: #f1f5f9; color: #212529;}
+        .is-dark{background-color: #212529; color: #f1f5f9;}
+    </style>
+    <title>Mudar tema / Mudar Atributos</title>
 </head>
-<body>
-    <button onclick="send()">Clique</button>
-    <br><br>
-    <section id="res"></section>
+<body class="is-light">
+    <h1>Alternando os styles/atributos</h1>
+    <hr>
+    <button id="themeLight" type="button">Tema claro</button>
+    <button id="themeDark" type="button">Tema escuro</button>
+    <button id="themeSwitch" type="button">Alternar tema claro/escuro</button>
+    <h2>Título</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit laudantium architecto officiis enim quisquam possimus nihil sunt consequatur fuga laboriosam reprehenderit quos delectus vel tempore aut rem, beatae totam dolores labore temporibus? Harum vitae fugit minima delectus ex. Quasi, expedita!</p>
+    <h2>Título 2</h2>
+    <label for="input">Digite alguma coisa:</label>
+    <input type="text" name="input" id="input" data-something-else="Algum valor">
+    <button id="value" type="button">Mudar valor</button>
+    <button id="type" type="button">Mudar tipo</button>
+    <button id="placeholder" type="button">Mudar placeholder</button>
+    <button id="disabled" type="button">Desabilitar/Habilitar</button>
+    <button id="datas" type="button">Mostrar dados</button>
     <script>
-        let rows = 0
-        function send(){
-            const res = document.querySelector('#res')
-            const p = document.createElement('p')
+        const input = document.getElementById('input')
 
-            let input01 = document.createElement('input')
-            input01.type = 'radio'
-            input01.name = rows + '-experience'
-            input01.id = 'in1'
-            input01.value = '0-2 anos'
-            input01.setAttribute('onchange', 'md()')
-            const label01 = document.createElement('label')
-            label01.innerText = ' 0-2 anos'
+        document.getElementById('value').addEventListener('click', function () {
+            input.value = 'Batatinha' //atribuir valor
+            console.log(input.getAttribute('value')) //retorna valor se tiver definido no html
+        })
+        document.getElementById('type').addEventListener('click', function () {
+            // input.type = 'radio' => só muda e não retorna
+            input.type = input.type !== 'radio' ? 'radio' : ''
+        })
+        document.getElementById('placeholder').addEventListener('click', function () {
+            input.placeholder = 'Digite algo...'
+        })
+        document.getElementById('disabled').addEventListener('click', function () {
+            input.disabled = !input.disabled // se usar setAttribute ele só desabilita e não habilita novamente
+        })
+        document.getElementById('datas').addEventListener('click', function () {
+            const dataSetado = input.dataset.somethingElse
+            console.log(`O data-something-else é: "${dataSetado}"`)
+            input.dataset.somethingElse = 'Outro valor'
+            console.log(`O novo data-something-else é: "${input.dataset.somethingElse}"`)
+        })
 
-            let input02 = document.createElement('input')
-            input02.type = 'radio'
-            input02.name = rows + '-experience'
-            input02.id = 'in2'
-            input02.value = '3-4 anos'
-            input02.setAttribute('onchange', 'md()')
-            const label02 = document.createElement('label')
-            label02.innerText = ' 3-4 anos'
 
-            let input03 = document.createElement('input')
-            input03.type = 'radio'
-            input03.name = rows + '-experience'
-            input03.id = 'in3'
-            input03.value = '5+ anos'
-            input03.setAttribute('onchange', 'md()')
-            const label03 = document.createElement('label')
-            label03.innerText = ' 5+ anos'
-
-            p.append(input01, label01, input02, label02, input03, label03)
-            res.appendChild(p)
-            rows++
+        function themeLight(){
+            document.body.classList.add('is-light')
+            // document.body.style.backgroundColor = '#f1f5f9'
+            // document.body.style.color = '#212529'
         }
-
-        function md(){
-            let arr = []
-           document.querySelectorAll('p > input:checked').forEach(element => {
-            arr.push(element.value)
-           })
-            console.log(arr)
+        function themeDark(){
+            document.body.classList.add('is-dark')
+            // document.body.style.backgroundColor = '#212529'
+            // document.body.style.color = '#f1f5f9'
         }
+        function themeSwitch(){ 
+            // document.body.classList.toggle('is-light') => não precisa colocar porque o "toggle" ele adiciona a classe ao elemento caso ela não exista e remove-a caso exista.
+            document.body.classList.toggle('is-dark')
+        }
+        document.getElementById('themeLight').addEventListener('click', themeLight)
+        document.getElementById('themeDark').addEventListener('click', themeDark)
+        document.getElementById('themeSwitch').addEventListener('click', themeSwitch)
     </script>
 </body>
 </html>
