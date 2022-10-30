@@ -28,6 +28,7 @@ main {
 
 header {
     padding: 2rem 0;
+    font-size: 1.5rem;
 }
 
 #themeSwitcher {
@@ -87,7 +88,7 @@ input {
 }
 
 #copyToClipboard {
-    background-color: transparent;
+    background-color: var(--bg-color);
     border: solid var(--border-color);
     border-width: 2px;
     border-radius: .5rem 0 0 .5rem;
