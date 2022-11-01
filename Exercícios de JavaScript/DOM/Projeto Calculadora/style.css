@@ -31,11 +31,14 @@ header {
     font-size: 1.5rem;
 }
 
+h1{
+    margin-right: 20px;
+}
+
 #themeSwitcher {
     background-color: var(--bg-color);
     border: .125rem solid var(--font-color);
     color: var(--font-color);
-    padding-left: 20px;
 }
 
 #themeSwitcher:hover {
