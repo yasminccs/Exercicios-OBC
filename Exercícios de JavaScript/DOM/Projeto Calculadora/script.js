@@ -3,7 +3,8 @@ const root = document.querySelector(':root')
 const input = document.querySelector('#input')
 const inputResult = document.querySelector('#result')
 
-const allowsKeys = [' ', '(', ')', '/', '*', '-', '+', '.', '%', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
+const allowedNum = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
+const allowedSimbols = [' ', '(', ')', '/', '*', '-', '+', '.', '%']
 
 document.querySelectorAll('.charKey').forEach(element => {
   element.addEventListener('click', function () {
@@ -19,7 +20,11 @@ document.querySelector('#clear').addEventListener('click', function () {
 
 input.addEventListener('keydown', ev => {
   ev.preventDefault()
-  if(allowsKeys.includes(ev.key)){
+  if(allowedNum.includes(ev.key)){
+    input.value += ev.key
+    return
+  }
+  if(allowedSimbols.includes(ev.key)){
     input.value += ev.key
     return
   }
