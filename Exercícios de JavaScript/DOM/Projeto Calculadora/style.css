@@ -42,19 +42,23 @@ header {
     color: var(--bg-color);
 }
 
-button {
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: .5rem;
-    font-weight: 700;
-    padding: .5rem 1rem;
-    transition: .15s;
+#copyToClipboard {
+    background-color: var(--bg-color);
+    border: solid var(--border-color);
+    border-width: 2px;
+    border-radius: .5rem 0 0 .5rem;
+    color: var(--font-color);
+    cursor: pointer;
+    display: block;
+    height: 4.25rem;
+    width: 6rem;
 }
 
 input {
     background-color: var(--bg-color);
     border: 2px solid var(--border-color);
-    border-radius: .5rem;
+    border-radius: 0 .5rem .5rem 0;
+    border-width: 2px 2px 2px 0;
     color: var(--font-color);
     display: block;
     font-size: 1.75rem;
@@ -62,6 +66,15 @@ input {
     padding: 1rem;
     text-align: end;
     width: 100%;
+}
+
+button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: .5rem;
+    font-weight: 700;
+    padding: .5rem 1rem;
+    transition: .15s;
 }
 
 #keys {
@@ -82,23 +95,6 @@ input {
     filter: brightness(0.75);
 }
 
-#result {
-    border-width: 2px 2px 2px 0;
-    border-radius: 0 .5rem .5rem 0;
-}
-
-#copyToClipboard {
-    background-color: var(--bg-color);
-    border: solid var(--border-color);
-    border-width: 2px;
-    border-radius: .5rem 0 0 .5rem;
-    color: var(--font-color);
-    cursor: pointer;
-    display: block;
-    height: 4.25rem;
-    width: 6rem;
-}
-
 .flex {
     display: flex;
 } 
@@ -112,6 +108,7 @@ input {
 }
 
 .error {
+    /* content: 'ERROR'; */
     background-color: var(--error-color);
 }
 

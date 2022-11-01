@@ -20,12 +20,15 @@
         <h1>Calculadora</h1>
         <button id="themeSwitcher">Switch Theme Dark/Light</button>
       </header>
-      <input type="text" id="input" />
+      <section class="flex align-center justify-between">
+        <button id="copyToClipboard" title="Copiar/Copiado">Copy</button>
+        <input type="text" id="input"/>
+      </section>
       <div id="keys">
         <button title="Limpar" id="clear">C</button>
-        <button class="charKey" data-value="(" title="Abre parênteses">(</button>
-        <button class="charKey" data-value=")" title="Fecha parênteses">)</button>
-        <button class="charKey" data-value="/" title="Dividir">/</button>
+        <button class="charKey" data-value=" (" title="Abre parênteses">(</button>
+        <button class="charKey" data-value=") " title="Fecha parênteses">)</button>
+        <button class="charKey" data-value=" / " title="Dividir">/</button>
         <button class="charKey" data-value="7" title="Sete">7</button>
         <button class="charKey" data-value="8" title="Oito">8</button>
         <button class="charKey" data-value="9" title="Nove">9</button>
@@ -43,10 +46,6 @@
         <button class="charKey" data-value=" % " title="%/Resto">mod</button>
         <button id="equal" title="Resultado">=</button>
       </div>
-      <section class="flex align-center justify-between">
-        <button id="copyToClipboard" title="Copiar/Copiado">Copy</button>
-        <input type="text" id="result" disabled />
-      </section>
     </main>
   </body>
 </html>

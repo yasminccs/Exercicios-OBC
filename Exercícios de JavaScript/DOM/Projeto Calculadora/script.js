@@ -3,7 +3,7 @@ const root = document.querySelector(':root')
 const input = document.querySelector('#input')
 const inputResult = document.querySelector('#result')
 
-const allowsKeys = [' ', ' (', ') ', ' / ', ' * ', ' - ', ' + ', '.', ' % ', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
+const allowsKeys = [' ', '(', ')', '/', '*', '-', '+', '.', '%', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
 
 document.querySelectorAll('.charKey').forEach(element => {
   element.addEventListener('click', function () {
@@ -34,11 +34,11 @@ input.addEventListener('keydown', ev => {
 document.querySelector('#equal').addEventListener('click', calculate)
 
 function calculate(){
-  inputResult.value = 'ERROR'
-  inputResult.classList.add('error')
   const result = eval(input.value)
-  inputResult.value = result
-  inputResult.classList.remove('error')
+  input.value = result
+  // input.innerText = 'ERROR'
+  // input.classList.add('error')
+  // input.classList.remove('error')
 }
 
 document.querySelector('#copyToClipboard').addEventListener('click', ev => {
@@ -46,7 +46,7 @@ document.querySelector('#copyToClipboard').addEventListener('click', ev => {
   if(btnCopy.innerText === 'Copy'){
     btnCopy.innerText = 'Copied!'
     btnCopy.classList.add('success')
-    navigator.clipboard.writeText(inputResult.value)
+    navigator.clipboard.writeText(input.value)
    } else {
     btnCopy.innerText = 'Copy'
     btnCopy.classList.remove('success')
