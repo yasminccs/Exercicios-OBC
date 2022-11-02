@@ -112,9 +112,9 @@ button {
 }
 
 .error {
-    /* content: 'ERROR'; */
+    content: 'ERROR';
     background-color: var(--error-color);
-}
+} 
 
 .success {
     border-color: var(--primary-color) !important;

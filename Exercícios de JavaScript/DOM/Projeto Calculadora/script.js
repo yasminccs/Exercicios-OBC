@@ -1,15 +1,28 @@
 const main = document.querySelector('main')
 const root = document.querySelector(':root')
 const input = document.querySelector('#input')
-const inputResult = document.querySelector('#result')
+const numbers = document.getElementsByClassName('nums')
+const symbols = document.getElementsByClassName('symbol')
+let lastClicked = 'symbol'
 
 const allowedNum = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
-const allowedSimbols = [' ', '(', ')', '/', '*', '-', '+', '.', '%']
+const allowedSimbols = [...document.querySelectorAll('.operator')].map(ev => ev.textContent)
 
-document.querySelectorAll('.charKey').forEach(element => {
-  element.addEventListener('click', function () {
-    const value = element.dataset.value
-    input.value += value
+Array.from(numbers).forEach(function(numberElement) {
+  const numberValue = numberElement.textContent
+  numberElement.addEventListener('click', function() {
+    lastClicked = 'number'
+    input.value += numberValue
+  });
+});
+
+Array.from(symbols).forEach(function(numberElement) {
+  const symbolValue = numberElement.textContent
+  numberElement.addEventListener('click', function() {
+    if (lastClicked !== 'symbol') {
+      lastClicked = 'symbol'
+      input.value += symbolValue
+    }
   })
 })
 
@@ -41,9 +54,6 @@ document.querySelector('#equal').addEventListener('click', calculate)
 function calculate(){
   const result = eval(input.value)
   input.value = result
-  // input.innerText = 'ERROR'
-  // input.classList.add('error')
-  // input.classList.remove('error')
 }
 
 document.querySelector('#copyToClipboard').addEventListener('click', ev => {
