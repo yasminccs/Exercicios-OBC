@@ -5,8 +5,8 @@ const numbers = document.getElementsByClassName('nums')
 const symbols = document.getElementsByClassName('symbol')
 let lastClicked = 'symbol'
 
-const allowedNum = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']
-const allowedSimbols = [...document.querySelectorAll('.operator')].map(ev => ev.textContent)
+const allowedNum = [...document.querySelectorAll('.nums')].map(ev => ev.textContent)
+const allowedSimbols = [...document.querySelectorAll('.symbol')].map(ev => ev.textContent)
 
 Array.from(numbers).forEach(function(numberElement) {
   const numberValue = numberElement.textContent

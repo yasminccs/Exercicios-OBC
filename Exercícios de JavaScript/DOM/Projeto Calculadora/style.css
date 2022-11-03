@@ -21,8 +21,9 @@ body {
 main {
     display: block;
     margin: 0 auto;
-    max-width: 40rem;
-    padding: 0 1.5rem 2.5rem;
+    height: 100vh;
+    max-width: 42rem;
+    padding: 0 2.5rem;
     position: relative;
 }
 
