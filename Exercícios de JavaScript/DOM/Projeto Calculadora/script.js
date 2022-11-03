@@ -1,6 +1,7 @@
 const main = document.querySelector('main')
 const root = document.querySelector(':root')
 const input = document.querySelector('#input')
+const btnDelete = document.getElementById('delete')
 const numbers = document.getElementsByClassName('nums')
 const symbols = document.getElementsByClassName('symbol')
 let lastClicked = 'symbol'
@@ -34,6 +35,10 @@ document.querySelector('#clear').addEventListener('click', function () {
     input.value = " "
     input.focus()
   }
+})
+
+btnDelete.addEventListener('click', function (){
+  input.value = input.value.slice(0, -1)
 })
 
 input.addEventListener('keydown', ev => {
