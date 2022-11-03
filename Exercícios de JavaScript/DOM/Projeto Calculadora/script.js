@@ -26,9 +26,14 @@ Array.from(symbols).forEach(function(numberElement) {
   })
 })
 
+let media = window.matchMedia("(max-width: 768px)")
 document.querySelector('#clear').addEventListener('click', function () {
-  input.value = " "
-  input.focus()
+  if(media.matches){
+    input.value = " "
+  } else {
+    input.value = " "
+    input.focus()
+  }
 })
 
 input.addEventListener('keydown', ev => {
