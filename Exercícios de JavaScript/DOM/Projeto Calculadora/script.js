@@ -14,6 +14,10 @@ Array.from(numbers).forEach(function(numberElement) {
   numberElement.addEventListener('click', function() {
     lastClicked = 'number'
     input.value += numberValue
+    if (input.value.length > 35) {
+      input.value = input.value.slice(0, 35);
+      alert('Quantidade máxima de caracteres atingido.')
+  }
   });
 });
 
@@ -56,6 +60,13 @@ input.addEventListener('keydown', ev => {
   }
   if(ev.key === 'Enter'){
     calculate()
+  }
+})
+
+input.addEventListener('keyup', () => {
+  if (input.value.length > 35) {
+      input.value = input.value.slice(0, 35);
+      alert('Quantidade máxima de caracteres atingido.')
   }
 })
 

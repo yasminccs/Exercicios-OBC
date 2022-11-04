@@ -23,7 +23,7 @@ main {
     margin: 0 auto;
     height: 100vh;
     max-width: 42rem;
-    padding: 0 2.5rem;
+    padding: 1rem 2.5rem 0rem 2.5rem;
     position: relative;
 }
 
@@ -32,23 +32,23 @@ header {
     font-size: 1.5rem;
 }
 
-h1{
+header h1{
     margin-right: 20px;
 }
 
-#themeSwitcher {
+header > #themeSwitcher {
     background-color: var(--bg-color);
     border: .125rem solid var(--font-color);
     padding: .5rem 1rem;
     color: var(--font-color);
 }
 
-#themeSwitcher:hover {
+header > #themeSwitcher:hover {
     background-color: var(--font-color);
     color: var(--bg-color);
 }
 
-#copyToClipboard {
+section > #copyToClipboard {
     background-color: var(--bg-color);
     border: solid var(--border-color);
     border-width: 2px;
@@ -60,7 +60,7 @@ h1{
     width: 4rem;
 }
 
-input {
+section > input {
     background-color: var(--bg-color);
     border: 2px solid var(--border-color);
     border-width: 2px 0px;
