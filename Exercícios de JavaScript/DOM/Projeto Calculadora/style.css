@@ -16,14 +16,15 @@ body {
     background-color: var(--bg-color);
     color: var(--font-color);
     font-family: "Ubuntu", sans-serif;
+    height: 100vh;
 }
 
 main {
     display: block;
     margin: 0 auto;
-    /* height: 100vh; */
-    /* max-width: 42rem; */
-    padding: 0rem 2.5rem;
+    height: 100vh;
+    max-width: 42rem;
+    padding: 0rem 2rem;
     position: relative;
 }
 
