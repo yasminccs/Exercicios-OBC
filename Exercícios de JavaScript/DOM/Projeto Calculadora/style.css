@@ -22,8 +22,8 @@ main {
     display: block;
     margin: 0 auto;
     height: 100vh;
-    max-width: 42rem;
-    padding: 2rem 2.5rem 0rem 2.5rem;
+    /* max-width: 42rem; */
+    padding: 0rem 2.5rem;
     position: relative;
 }
 
