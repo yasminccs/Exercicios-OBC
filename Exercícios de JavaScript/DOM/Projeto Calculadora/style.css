@@ -21,7 +21,7 @@ body {
 main {
     display: block;
     margin: 0 auto;
-    height: 100vh;
+    /* height: 100vh; */
     /* max-width: 42rem; */
     padding: 0rem 2.5rem;
     position: relative;
