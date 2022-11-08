@@ -5,7 +5,7 @@
 }
 
 :root {
-    --bg-color: #212529;
+    --bg-color: #131618;
     --border-color: #666;
     --font-color: #f1f5f9;
     --primary-color: #4dff91;
@@ -17,15 +17,17 @@ body {
     color: var(--font-color);
     font-family: "Ubuntu", sans-serif;
     height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 main {
     display: block;
     margin: 0 auto;
-    height: 100vh;
     max-width: 42rem;
     padding: 0rem 2rem;
-    position: relative;
+    height: 100vh;
+    /*position: relative;*/
 }
 
 header {
