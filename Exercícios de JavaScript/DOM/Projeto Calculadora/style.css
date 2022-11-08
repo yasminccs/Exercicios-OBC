@@ -24,8 +24,6 @@ body {
 main {
     display: block;
     margin: 0 auto;
-    height: 45rem;
-    /* max-width: 42rem; */
     padding: 0rem 1.8rem;
 }
 
