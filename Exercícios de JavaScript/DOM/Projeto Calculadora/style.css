@@ -17,14 +17,18 @@ body {
     color: var(--font-color);
     font-family: "Ubuntu", sans-serif;
     height: 100vh;
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
 }
 
 main {
-    display: block;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* display: block;
     margin: auto;
-    padding: 0rem 1.8rem;
+    padding: 0rem 1.8rem; */
 }
 
 header {
