@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>Jogo da Velha</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div id="btnContainer">
-        <button id="btnSwitcher" type="button">Light/Dark</button>
+
+    <div id="btnTheme">
+        <button type="button" id="themeSwitcher">Light/Dark</button>
     </div>
-    <div id="container">
-        <div data-cell-index="0" class="cell"></div>
-        <div data-cell-index="1" class="cell"></div>
-        <div data-cell-index="2" class="cell"></div>
-        <div data-cell-index="3" class="cell"></div>
-        <div data-cell-index="4" class="cell"></div>
-        <div data-cell-index="5" class="cell"></div>
-        <div data-cell-index="6" class="cell"></div>
-        <div data-cell-index="7" class="cell"></div>
-        <div data-cell-index="8" class="cell"></div>
+  <div class="board" id="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+  </div>
+
+  <section id="points">
+    <div id="player-1">
+     <h3 class="p1">JOGADOR (X)</h3>
+     <h3 class="s1">0</h3>
     </div>
-    <button class="game--restart">Restart Game</button>
-    <!-- <div class="winning-message" id="winningMessage">
-        <div id="winningMessageText"></div>
-        <button id="restartButton">Restart</button>
-    </div> -->
+
+    <div id="empate">
+      <h3 class="emp">-</h3>
+      <h3 class="sEmp">0</h3>
+    </div>
+
+    <div id="player-2">
+      <h3 class="p2">COMPUTADOR (O)</h3>
+      <h3 class="s2">0</h3>
+    </div>
+  </section>
+
+  <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text></div>
+    <button id="restartButton">Restart</button>
+  </div>
+
 </body>
 </html>
