@@ -11,10 +11,9 @@
   <script src="script.js" defer></script>
   <title>Tic Tac Toe</title>
 </head>
-<body>
-
+<body data-theme="dark">
     <div id="btnTheme">
-        <button type="button" id="themeSwitcher">Light/Dark</button>
+        <button type="button" id="themeSwitcher">Dark/Light</button>
     </div>
   <div class="board" id="board">
     <div class="cell" data-cell></div>
@@ -30,7 +29,7 @@
 
   <section id="points">
     <div id="player-1">
-     <h3 class="p1">JOGADOR (X)</h3>
+     <h3 class="p1">JOGADOR 1 (X)</h3>
      <h3 class="s1">0</h3>
     </div>
 
@@ -40,7 +39,7 @@
     </div>
 
     <div id="player-2">
-      <h3 class="p2">COMPUTADOR (O)</h3>
+      <h3 class="p2">JOGADOR 2 (O)</h3>
       <h3 class="s2">0</h3>
     </div>
   </section>
@@ -50,5 +49,19 @@
     <button id="restartButton">Restart</button>
   </div>
 
+  <section class="boxFeedback">
+    <div id="container">
+          <h2 id="titleBox">Você gostaria de jogar contra quem?</h2>
+          <p class="cntd">
+            <label><input type="radio" name="player" id="p1" value="0"> Um(a) amigo(a)</label>
+          </p>
+          <p class="cntd">
+            <label><input type="radio" name="player" id="c1" value="1"> Computador</label>
+          </p>
+          <p class="cntd">
+              <button id="play" type="button">Play</button>
+          </p>
+    </div>
+  </section>
 </body>
 </html>

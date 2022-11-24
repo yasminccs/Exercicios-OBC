@@ -1,5 +1,3 @@
-const main = document.querySelector('main')
-const root = document.querySelector(':root')
 const input = document.querySelector('#input')
 const btnDelete = document.getElementById('delete')
 const numbers = document.getElementsByClassName('nums')
@@ -89,6 +87,8 @@ document.querySelector('#copyToClipboard').addEventListener('click', ev => {
    }
 })
 
+const main = document.querySelector('main')
+const root = document.querySelector(':root')
 document.getElementById("themeSwitcher").addEventListener("click", function () {
   if (main.dataset.theme === "dark"){
     root.style.setProperty("--bg-color", "#f1f5f9")

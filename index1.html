@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section#boxFeedback{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: #000000e3;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div#container{
+            background-color: #e1dcdc;
+            width: 500px;
+            height: 240px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p.cntd {
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        button#play {
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        input[name="player"] {
+            cursor: pointer;
+        }
+
+        section#boxFeedback{
+            display: flex;
+        }
+    </style>
+</head>
+<body onload="initialize()">
+    <h1>Olá, mundo.</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quae, magnam optio obcaecati corrupti deserunt. Minus reiciendis itaque iure sequi illum neque iste et obcaecati nostrum eligendi error quasi dolorum ipsa adipisci molestiae nesciunt saepe omnis, voluptate, temporibus ad maiores soluta sunt doloribus velit. Voluptatibus deleniti nesciunt nobis asperiores consequuntur praesentium, ratione earum ex velit aspernatur totam facere! Nobis, distinctio!</p>
+    <section class="lala" id="boxFeedback">
+        <div id="container">
+            <h2 id="titleBox">Você gostaria de jogar contra quem?</h2>
+            <p class="cntd">
+              <label><input type="radio" name="player" id="p1" value="0"> Um(a) amigo(a)</label>
+            </p>
+            <p class="cntd">
+              <label><input type="radio" name="player" id="c1" value="1"> Computador</label>
+            </p>
+            <p class="cntd">
+                <button id="play" type="button" onclick="fecho()">Play</button>
+            </p>
+        </div>
+      </section>
+
+      <script>
+        function initialize() {
+            const boxFeedback = document.getElementById('boxFeedback')
+            boxFeedback.style.display = 'block'
+        }
+
+        function fecho() {
+            const boxFeedback = document.getElementById('boxFeedback')
+            boxFeedback.style.display = 'none'
+        }
+      </script>
+</body>
+</html>
