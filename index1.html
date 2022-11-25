@@ -15,15 +15,12 @@
 
         section#boxFeedback{
             display: none;
-            position: fixed;
-            z-index: 1;
+            position: absolute;
             left: 0;
             top: 0;
             height: 100vh;
             width: 100vw;
             background-color: #000000e3;
-            justify-content: center;
-            align-items: center;
         }
 
         div#container{
@@ -55,10 +52,12 @@
 
         section#boxFeedback{
             display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
-<body onload="initialize()">
+<body>
     <h1>Olá, mundo.</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quae, magnam optio obcaecati corrupti deserunt. Minus reiciendis itaque iure sequi illum neque iste et obcaecati nostrum eligendi error quasi dolorum ipsa adipisci molestiae nesciunt saepe omnis, voluptate, temporibus ad maiores soluta sunt doloribus velit. Voluptatibus deleniti nesciunt nobis asperiores consequuntur praesentium, ratione earum ex velit aspernatur totam facere! Nobis, distinctio!</p>
     <section class="lala" id="boxFeedback">
@@ -77,11 +76,6 @@
       </section>
 
       <script>
-        function initialize() {
-            const boxFeedback = document.getElementById('boxFeedback')
-            boxFeedback.style.display = 'block'
-        }
-
         function fecho() {
             const boxFeedback = document.getElementById('boxFeedback')
             boxFeedback.style.display = 'none'

@@ -12,31 +12,30 @@ The game grid is represented in the array Grid.cells as follows:
 [3] [4] [5]
 [6] [7] [8]
 
-The cells (array elements) hold the following numeric values:
-0 if not occupied, 1 for player, 3 for computer.
-This allows us to quickly get an overview of the game state:
-if the sum of all the cells in a row is 9, the computer wins,
-if it is 3 and all the cells are occupied, the human player wins,
+As células (elementos da matriz) contêm os seguintes valores numéricos:
+0 se não estiver ocupado, 1 para jogador, 3 para computador.
+Isso nos permite obter rapidamente uma visão geral do estado do jogo:
+se a soma de todas as células seguidas for 9, o computador ganha,
+se for 3 e todas as células estiverem ocupadas, o jogador humano vence,
 etc.
 
 (2) Strategy of makeComputerMove()
 
-The computer first  looks for almost completed rows, columns, and
-diagonals, where there are two fields occupied either by the human
-player or by the computer itself. If the computer can win by
-completing a sequence, it does so; if it can block the player from
-winning with the next move, it does that. If none of that applies,
-it plays the center field if that's free, otherwise it selects a
-random free field. This is not a 100 % certain strategy, but the
-gameplay experience is fairly decent.
-
+O computador primeiro procura linhas, colunas e
+diagonais, onde há dois campos ocupados pelo homem
+reprodutor ou pelo próprio computador. Se o computador pode ganhar por
+completando uma sequência, ele o faz; se ele pode bloquear o jogador de
+ganhando com o próximo movimento, ele faz isso. Se nada disso se aplicar,
+ele joga no campo central se estiver livre, caso contrário, ele seleciona um
+campo livre aleatório. Esta não é uma estratégia 100% certa, mas o
+experiência de jogo é bastante decente.
 */
 
 //==================================
-// EVENT BINDINGS
+// VÍNCULOS DO EVENTO
 //==================================
 
-// Bind Esc key to closing the modal dialog
+// Vincule a tecla Esc para fechar a caixa de diálogo modal
 document.onkeypress = function (evt) {
     evt = evt || window.event;
     var modal = document.getElementsByClassName("modal")[0];
@@ -45,7 +44,7 @@ document.onkeypress = function (evt) {
     }
 };
 
-// When the user clicks anywhere outside of the modal dialog, close it
+// Quando o usuário clicar em qualquer lugar fora da caixa de diálogo modal, feche a caixa de diálogo itdal
 window.onclick = function (evt) {
     var modal = document.getElementsByClassName("modal")[0];
     if (evt.target === modal) {
@@ -54,7 +53,7 @@ window.onclick = function (evt) {
 };
 
 //==================================
-// HELPER FUNCTIONS
+// FUNÇÕES DE AJUDA
 //==================================
 function sumArray(array) {
     var sum = 0,
@@ -91,7 +90,7 @@ function intRandom(min, max) {
     return Math.floor(rand);
 }
 
-// GLOBAL VARIABLES
+// VARIAVEIS GLOBAIS
 var moves = 0,
     winner = 0,
     x = 1,
@@ -125,10 +124,10 @@ function Grid() {
 // Grid methods
 //=============
 
-// Get free cells in an array.
-// Returns an array of indices in the original Grid.cells array, not the values
-// of the array elements.
-// Their values can be accessed as Grid.cells[index].
+// Obtém células livres em um array.
+// Retorna um array de índices no array Grid.cells original, não os valores
+// dos elementos do array.
+// Seus valores podem ser acessados ​​como Grid.cells[index].
 Grid.prototype.getFreeCellIndices = function () {
     var i = 0,
         resultArray = [];
@@ -142,8 +141,8 @@ Grid.prototype.getFreeCellIndices = function () {
     return resultArray;
 };
 
-// Get a row (accepts 0, 1, or 2 as argument).
-// Returns the values of the elements.
+// Obtém uma linha (aceita 0, 1 ou 2 como argumento).
+// Retorna os valores dos elementos.
 Grid.prototype.getRowValues = function (index) {
     if (index !== 0 && index !== 1 && index !== 2) {
         console.error("Wrong arg for getRowValues!");
@@ -153,8 +152,8 @@ Grid.prototype.getRowValues = function (index) {
     return this.cells.slice(i, i + 3);
 };
 
-// Get a row (accepts 0, 1, or 2 as argument).
-// Returns an array with the indices, not their values.
+// Obtém uma linha (aceita 0, 1 ou 2 como argumento).
+// Retorna um array com os índices, não seus valores.
 Grid.prototype.getRowIndices = function (index) {
     if (index !== 0 && index !== 1 && index !== 2) {
         console.error("Wrong arg for getRowIndices!");
@@ -228,7 +227,7 @@ Grid.prototype.getDiagIndices = function (arg) {
     }
 };
 
-// Get first index with two in a row (accepts computer or player as argument)
+//Obter o primeiro índice com dois em linha (aceita computador ou player como argumento)
 Grid.prototype.getFirstWithTwoInARow = function (agent) {
     if (agent !== computer && agent !== player) {
         console.error("Function getFirstWithTwoInARow accepts only player or computer as argument.");
@@ -270,13 +269,13 @@ Grid.prototype.reset = function () {
 // MAIN FUNCTIONS
 //==================================
 
-// executed when the page loads
+// executado quando a página carrega
 function initialize() {
     myGrid = new Grid();
     moves = 0;
     winner = 0;
     gameOver = false;
-    whoseTurn = player; // default, this may change
+    whoseTurn = player; // padrão, isso pode mudar
     for (var i = 0; i <= myGrid.cells.length - 1; i++) {
         myGrid.cells[i] = 0;
     }
@@ -285,7 +284,7 @@ function initialize() {
     // debugger;
 }
 
-// Ask player if they want to play as X or O. X goes first.
+// Pergunte ao jogador se ele quer jogar como X ou O. X vai primeiro.
 function assignRoles() {
     askUser("Do you want to go first?");
     document.getElementById("yesBtn").addEventListener("click", makePlayerX);
@@ -315,18 +314,18 @@ function makePlayerO() {
     document.getElementById("noBtn").removeEventListener("click", makePlayerO);
 }
 
-// executed when player clicks one of the table cells
+// executado quando o jogador clica em uma das células da tabela
 function cellClicked(id) {
-    // The last character of the id corresponds to the numeric index in Grid.cells:
+    // O último caractere do id corresponde ao índice numérico em Grid.cells:
     var idName = id.toString();
     var cell = parseInt(idName[idName.length - 1]);
     if (myGrid.cells[cell] > 0 || whoseTurn !== player || gameOver) {
-        // cell is already occupied or something else is wrong
+        // a célula já está ocupada ou algo está errado
         return false;
     }
     moves += 1;
     document.getElementById(id).innerHTML = playerText;
-    // randomize orientation (for looks only)
+    // randomize a orientação (somente para aparência)
     var rand = Math.random();
     if (rand < 0.3) {
         document.getElementById(id).style.transform = "rotate(180deg)";
@@ -335,7 +334,7 @@ function cellClicked(id) {
     }
     document.getElementById(id).style.cursor = "default";
     myGrid.cells[cell] = player;
-    // Test if we have a winner:
+    // Teste se temos um vencedor:
     if (moves >= 5) {
         winner = checkWin();
     }
@@ -346,8 +345,8 @@ function cellClicked(id) {
     return true;
 }
 
-// Executed when player hits restart button.
-// ask should be true if we should ask users if they want to play as X or O
+// Executado quando o jogador pressiona o botão reiniciar.
+// ask deve ser true se devemos perguntar aos usuários se eles querem jogar como X ou O
 function restartGame(ask) {
     if (moves > 0) {
         var response = confirm("Are you sure you want to start over?");
@@ -374,7 +373,7 @@ function restartGame(ask) {
     }
 }
 
-// The core logic of the game AI:
+// A lógica central da IA ​​do jogo:
 function makeComputerMove() {
     // debugger;
     if (gameOver) {
@@ -396,7 +395,7 @@ function makeComputerMove() {
                 cell = myArr[intRandom(0, myArr.length - 1)];
             }
         }
-        // Avoid a catch-22 situation:
+        // Evite uma situação catch-22:
         if (moves == 3 && myGrid.cells[4] == computer && player == x && difficulty == 1) {
             if (myGrid.cells[7] == player && (myGrid.cells[0] == player || myGrid.cells[2] == player)) {
                 myArr = [6,8];
@@ -430,10 +429,10 @@ function makeComputerMove() {
             }
         }
     } else if (moves === 1 && myGrid.cells[4] == player && difficulty == 1) {
-        // if player is X and played center, play one of the corners
+        // se o jogador for X e jogou no centro, jogue um dos cantos
         cell = corners[intRandom(0,3)];
     } else if (moves === 2 && myGrid.cells[4] == player && computer == x && difficulty == 1) {
-        // if player is O and played center, take two opposite corners
+        //se o jogador é O e jogou no centro, pegue dois cantos opostos
         if (myGrid.cells[0] == computer) {
             cell = 8;
         }
@@ -447,10 +446,10 @@ function makeComputerMove() {
             cell = 0;
         }
     } else if (moves === 0 && intRandom(1,10) < 8) {
-        // if computer is X, start with one of the corners sometimes
+        //se o computador for X, comece com um dos cantos às vezes
         cell = corners[intRandom(0,3)];
     } else {
-        // choose the center of the board if possible
+        //escolha o centro do tabuleiro se possível
         if (myGrid.cells[4] === 0 && difficulty == 1) {
             cell = 4;
         } else {
@@ -462,8 +461,8 @@ function makeComputerMove() {
     // console.log("computer chooses " + id);
     document.getElementById(id).innerHTML = computerText;
     document.getElementById(id).style.cursor = "default";
-    // randomize rotation of marks on the board to make them look
-    // as if they were handwritten
+    // randomiza a rotação das marcas no quadro para fazê-las parecer
+    // como se fossem manuscritos
     var rand = Math.random();
     if (rand < 0.3) {
         document.getElementById(id).style.transform = "rotate(180deg)";
@@ -480,7 +479,7 @@ function makeComputerMove() {
     }
 }
 
-// Check if the game is over and determine winner
+// Verifique se o jogo acabou e determine o vencedor
 function checkWin() {
     winner = 0;
 
@@ -497,7 +496,7 @@ function checkWin() {
                 winner = player;
                 // console.log("player wins");
             }
-            // Give the winning row/column/diagonal a different bg-color
+            // Dê à linha/coluna/diagonal vencedora uma cor bg diferente
             var tmpAr = myGrid.getRowIndices(i);
             for (var j = 0; j < tmpAr.length; j++) {
                 var str = "cell" + tmpAr[j];
@@ -521,7 +520,7 @@ function checkWin() {
                 winner = player;
                 // console.log("player wins");
             }
-            // Give the winning row/column/diagonal a different bg-color
+            // Dê à linha/coluna/diagonal vencedora uma cor bg diferente
             var tmpAr = myGrid.getColumnIndices(i);
             for (var j = 0; j < tmpAr.length; j++) {
                 var str = "cell" + tmpAr[j];
@@ -545,7 +544,7 @@ function checkWin() {
                 winner = player;
                 // console.log("player wins");
             }
-            // Give the winning row/column/diagonal a different bg-color
+            // Dê à linha/coluna/diagonal vencedora uma cor bg diferente
             var tmpAr = myGrid.getDiagIndices(i);
             for (var j = 0; j < tmpAr.length; j++) {
                 var str = "cell" + tmpAr[j];
@@ -556,7 +555,7 @@ function checkWin() {
         }
     }
 
-    // If we haven't returned a winner by now, if the board is full, it's a tie
+    // Se não tivermos retornado um vencedor até agora, se o tabuleiro estiver cheio, é um empate
     var myArr = myGrid.getFreeCellIndices();
     if (myArr.length === 0) {
         winner = 10;

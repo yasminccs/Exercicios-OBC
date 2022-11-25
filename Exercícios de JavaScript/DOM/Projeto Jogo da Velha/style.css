@@ -18,14 +18,14 @@ body {
 }
 
 
-section.boxFeedback{
-    position: fixed;
+section#boxFeedback{
     display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
     height: 100vh;
     width: 100vw;
     background-color: #000000e3;
-    justify-content: center;
-    align-items: center;
 }
 
 div#container{
@@ -39,12 +39,7 @@ div#container{
     align-items: center;
 }
 
-.boxFeedback.mostra{
-    display: flex;
-}
-
 p.cntd {
-    /* margin-top: 25px; */
     font-weight: bold;
 }
 
@@ -53,11 +48,16 @@ button#play {
     border-radius: 4px;
     border: 1px solid black;
     cursor: pointer;
-    font-weight: bolder;
 }
 
 input[name="player"] {
     cursor: pointer;
+}
+
+section#boxFeedback{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div#btnTheme{
@@ -109,7 +109,7 @@ section#points{
    margin-right: 20px;
 }
   
-.s1, .sEmp, .s2{
+.score{
     font-size: 24px;
     text-align: center;
 }

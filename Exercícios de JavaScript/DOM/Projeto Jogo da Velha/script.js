@@ -13,14 +13,20 @@ const WINNING_COMBINATIONS = [
 
 const body = document.querySelector('body')
 const root = document.querySelector(':root')
-const section = document.getElementsByClassName('boxFeedback')
 const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 const restartButton = document.getElementById('restartButton')
 
+let score = 1
+
 let circleTurn //define o turno do personagem (X ou O)
+
+function fecho() {
+  const boxFeedback = document.getElementById('boxFeedback')
+  boxFeedback.style.display = 'none'
+}
 
 startGame()
 
@@ -50,18 +56,28 @@ function handleClick(e) { //lida com os cliques
   } else if (isDraw()) {
     endGame(true) //retorna empate
   } else { //em caso do jogo ainda não ter terminado
-    swapTurns()  //troca os turnos após o personagem ser colocado na célula
+    swapTurns() //troca os turnos após o personagem ser colocado na célula
     setBoardHoverClass() //é a sombra que aparece quando passe o mouse pela célula
   }
 }
 
-function endGame(draw) { //função que encerra o jogo mostrando a mensagem vencedora ou empate
+function endGame(draw) { //função que encerra o jogo mostrando a mensagem
+  const scoreEmpate = document.querySelector('#pt2')
+  const scorePlayer1 = document.querySelector('#pt1')
+  const scorePlayer2 = document.querySelector('#pt3')
   if (draw) {
     winningMessageTextElement.innerText = 'Empate!'
+    scoreEmpate.innerHTML = score
   } else {
     winningMessageTextElement.innerText = `${circleTurn ? `Jogador "O"` : `Jogador "X"`} ganhou!`
+    if(circleTurn){
+      scorePlayer2.innerHTML = score
+    } else {
+      scorePlayer1.innerHTML = score
+    }
   }
   winningMessageElement.classList.add('show')
+  score++
 }
 
 function isDraw() { //função que retorna se deu empate
