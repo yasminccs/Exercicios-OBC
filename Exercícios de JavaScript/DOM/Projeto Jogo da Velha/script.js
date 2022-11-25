@@ -18,8 +18,13 @@ const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 const restartButton = document.getElementById('restartButton')
+const scoreEmpate = document.querySelector('#pt2')
+const scorePlayer1 = document.querySelector('#pt1')
+const scorePlayer2 = document.querySelector('#pt3')
 
-let score = 1
+let points1 = 1
+let points2 = 1
+let points3 = 1
 
 let circleTurn //define o turno do personagem (X ou O)
 
@@ -62,22 +67,21 @@ function handleClick(e) { //lida com os cliques
 }
 
 function endGame(draw) { //função que encerra o jogo mostrando a mensagem
-  const scoreEmpate = document.querySelector('#pt2')
-  const scorePlayer1 = document.querySelector('#pt1')
-  const scorePlayer2 = document.querySelector('#pt3')
   if (draw) {
     winningMessageTextElement.innerText = 'Empate!'
-    scoreEmpate.innerHTML = score
+    scoreEmpate.innerText = points1
+    points1++
   } else {
     winningMessageTextElement.innerText = `${circleTurn ? `Jogador "O"` : `Jogador "X"`} ganhou!`
     if(circleTurn){
-      scorePlayer2.innerHTML = score
+      scorePlayer2.innerText = points2
+      points2++
     } else {
-      scorePlayer1.innerHTML = score
+      scorePlayer1.innerText = points3
+      points3++
     }
   }
   winningMessageElement.classList.add('show')
-  score++
 }
 
 function isDraw() { //função que retorna se deu empate
