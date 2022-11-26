@@ -30,8 +30,8 @@ section#boxFeedback{
 
 div#container{
     background-color: #e1dcdc;
-    width: 500px;
-    height: 290px;
+    width: 35vw;
+    height: 45vh;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@ div#container{
 
 p#gameRules {
     margin: 0px 25px;
-    line-height: 25px;
+    line-height: 1.5em;
     text-align: justify;
     font-weight: bold;
 }
@@ -70,6 +70,7 @@ div#btnTheme{
 
 button#themeSwitcher{
     background-color: var(--bg-color);
+    font-weight: bolder;
     color: var(--color);
     margin: 15px;
     border: 2px solid var(--color);
@@ -232,19 +233,24 @@ section#points{
     display: flex;
 }
 
-@media screen and (max-width: 400px){
-    #board, #points{
-        margin: 0px 50px;
+@media screen and (min-width: 260px) and (max-width: 400px){
+    .board{
+        margin-top: 50px;
     }
 
-    #player-1, #empate, #player-2{
-        margin-top: 13px;
-        font-size: 10px;
+    #points{
+        font-size: .7em;
     }
 }
 
 @media screen and (max-width: 525px){
-    #container{
-        margin: 0px 30px;
+    button#themeSwitcher{
+        font-size: .5em;
+        border: 1px solid var(--color);
+    }
+
+    .board{
+        grid-template-columns: repeat(3, 25vw);
+        grid-template-rows: repeat(3, 25vw);
     }
 }
