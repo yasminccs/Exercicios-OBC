@@ -233,28 +233,17 @@ section#points{
     display: flex;
 }
 
-/* @media screen and (min-width: 260px) and (max-width: 400px){
-    .board{
-        margin-top: 50px;
-    }
-
-    #points{
-        font-size: .7em;
-    }
-} */
-
-@media screen and (max-width: 525px){
+@media screen and (min-width: 260px) and (max-width: 525px){
     button#themeSwitcher{
         font-size: .7em;
         border: 1px solid var(--color);
     }
 
     .board{
-        margin-top: 50px;
-        margin-bottom: 50px;
-        grid-template-columns: repeat(3, 30vw);
-        grid-template-rows: repeat(3, 40vw);
-    }
+        margin: 40px 0px;
+         grid-template-columns: repeat(3, 30vw);
+         grid-template-rows: repeat(3, 34vw);
+     }
 
     #points{
         font-size: .7em;
