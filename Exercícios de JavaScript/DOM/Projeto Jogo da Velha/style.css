@@ -251,8 +251,9 @@ section#points{
 
     .board{
         margin-top: 50px;
-        grid-template-columns: repeat(3, 25vw);
-        grid-template-rows: repeat(3, 30vw);
+        margin-bottom: 50px;
+        grid-template-columns: repeat(3, 30vw);
+        grid-template-rows: repeat(3, 40vw);
     }
 
     #points{
