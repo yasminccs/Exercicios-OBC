@@ -251,6 +251,6 @@ section#points{
 
     .board{
         grid-template-columns: repeat(3, 25vw);
-        grid-template-rows: repeat(3, 25vw);
+        grid-template-rows: repeat(3, 30vw);
     }
 }
