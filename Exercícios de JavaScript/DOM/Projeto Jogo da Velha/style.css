@@ -245,7 +245,7 @@ section#points{
 
 @media screen and (max-width: 525px){
     button#themeSwitcher{
-        font-size: .5em;
+        font-size: .7em;
         border: 1px solid var(--color);
     }
 
