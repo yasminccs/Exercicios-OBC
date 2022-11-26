@@ -231,3 +231,20 @@ section#points{
 .winning-message.show {
     display: flex;
 }
+
+@media screen and (max-width: 400px){
+    #board, #points{
+        margin: 0px 50px;
+    }
+
+    #player-1, #empate, #player-2{
+        margin-top: 13px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 525px){
+    #container{
+        margin: 0px 30px;
+    }
+}
