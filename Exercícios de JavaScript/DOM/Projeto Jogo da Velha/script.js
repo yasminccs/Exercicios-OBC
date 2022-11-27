@@ -64,7 +64,7 @@ function handleClick(e) { //lida com os cliques
   }
 }
 
-function endGame(draw) { //função que encerra o jogo mostrando a mensagem
+function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = 'Empate!'
     scoreEmpate.innerText = points1
