@@ -26,7 +26,7 @@ let points1 = 1
 let points2 = 1
 let points3 = 1
 
-let circleTurn //define o turno do personagem (X ou O)
+let circleTurn 
 
 function fecho() {
   const boxFeedback = document.getElementById('boxFeedback')
@@ -38,25 +38,23 @@ startGame()
 restartButton.addEventListener('click', startGame)
 
 function startGame() {
-  circleTurn = false //dizer q vai começar com X e não O
+  circleTurn = false
   cellElements.forEach(cell => {
-    cell.classList.remove(X_CLASS) //remover os X do jogo anterior 
-    cell.classList.remove(CIRCLE_CLASS) //remover os O do jogo anterior
-    // cell.removeEventListener('click', handleClick)
+    cell.classList.remove(X_CLASS)
+    cell.classList.remove(CIRCLE_CLASS)
     cell.addEventListener('click', handleClick) 
-    //, { once: true }
   })
-  setBoardHoverClass() //é a sombra que aparece quando passe o mouse pela célula
-  winningMessageElement.classList.remove('show') //remove com a mensagem de vencedor ao clicar
+  setBoardHoverClass()
+  winningMessageElement.classList.remove('show')
 }
 
 function handleClick(e) { //lida com os cliques
   const cell = e.target
-  const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS // se circleTurn for true = O, se não false = X
+  const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
 
   placeMark(cell, currentClass) //coloca o personagem na célula ao clicar
 
-  if (checkWin(currentClass)) {// checkWin verifica se no tabulueiro há alguma daquelas combinações e vê se quem fez foi X ou O, dessa forma, determinando quem ganhou
+  if (checkWin(currentClass)) {//checkWin verifica se no tabulueiro há alguma daquelas combinações e vê se quem fez foi X ou O, dessa forma, determinando quem ganhou
     endGame(false)
   } else if (isDraw()) {
     endGame(true) //retorna empate
@@ -84,7 +82,7 @@ function endGame(draw) { //função que encerra o jogo mostrando a mensagem
   winningMessageElement.classList.add('show')
 }
 
-function isDraw() { //função que retorna se deu empate
+function isDraw() {
   return [...cellElements].every(cell => {
     return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
   })
