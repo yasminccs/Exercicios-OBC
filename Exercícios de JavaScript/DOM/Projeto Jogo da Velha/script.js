@@ -22,9 +22,11 @@ const scoreEmpate = document.querySelector('#pt2')
 const scorePlayer1 = document.querySelector('#pt1')
 const scorePlayer2 = document.querySelector('#pt3')
 
-let points1 = 1
-let points2 = 1
-let points3 = 1
+let score  = {
+  tie: 0,
+  player1: 0,
+  player2: 0
+}
 
 let circleTurn 
 
@@ -67,21 +69,20 @@ function handleClick(e) { //lida com os cliques
 function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = 'Empate!'
-    scoreEmpate.innerText = points1
-    points1++
+    score.tie++
+    scoreEmpate.innerText = score.tie
   } else {
     winningMessageTextElement.innerText = `${circleTurn ? `Jogador "O"` : `Jogador "X"`} ganhou!`
     if(circleTurn){
-      scorePlayer2.innerText = points2
-      points2++
+      score.player1++
+      scorePlayer2.innerText = score.player1
     } else {
-      scorePlayer1.innerText = points3
-      points3++
+      score.player2++
+      scorePlayer1.innerText = score.player2
     }
   }
   winningMessageElement.classList.add('show')
 }
-
 function isDraw() {
   return [...cellElements].every(cell => {
     return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)

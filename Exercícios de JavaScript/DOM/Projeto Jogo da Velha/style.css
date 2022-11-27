@@ -20,18 +20,19 @@ body {
 
 section#boxFeedback{
     display: none;
+    background-color: #000000e3;
     position: absolute;
     left: 0;
     top: 0;
     height: 100vh;
     width: 100vw;
-    background-color: #000000e3;
 }
 
 div#container{
     background-color: #e1dcdc;
-    width: 35vw;
-    height: 45vh;
+    width: 30em;
+    height: 18em;
+    margin: 7px 23px 0px 23px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -41,20 +42,18 @@ div#container{
 
 p#gameRules {
     margin: 0px 25px;
+    font-size: 2.5vmin;
+    font-weight: bold;
     line-height: 1.5em;
     text-align: justify;
-    font-weight: bold;
 }
 
 button#play {
+    margin-bottom: 12px;
     padding: 8px 15px;
     border-radius: 4px;
     border: 1px solid black;
     font-weight: bolder;
-    cursor: pointer;
-}
-
-input[name="player"] {
     cursor: pointer;
 }
 
@@ -233,7 +232,20 @@ section#points{
     display: flex;
 }
 
-@media screen and (min-width: 260px) and (max-width: 525px){
+@media screen and (max-width: 360px){
+    p#gameRules{
+        font-size: 3.9vmin;
+    }
+}
+
+@media screen and (max-width: 500px){
+    p#gameRules{
+        font-size: 3.4vmin;
+        font-weight: bolder;
+    }
+}
+
+@media screen and (max-width: 525px){
     button#themeSwitcher{
         font-size: .7em;
         border: 1px solid var(--color);
@@ -241,8 +253,8 @@ section#points{
 
     .board{
         margin: 40px 0px;
-         grid-template-columns: repeat(3, 30vw);
-         grid-template-rows: repeat(3, 36vw);
+        grid-template-columns: repeat(3, 30vw);
+        grid-template-rows: repeat(3, 36vw);
      }
 
     #points{
