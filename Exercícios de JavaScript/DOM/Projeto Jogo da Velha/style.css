@@ -30,6 +30,7 @@ section#boxFeedback{
 
 div#container{
     background-color: #e1dcdc;
+    font-size: 1em;
     width: 30em;
     height: 18em;
     margin: 7px 23px 0px 23px;
@@ -42,7 +43,7 @@ div#container{
 
 p#gameRules {
     margin: 0px 25px;
-    font-size: 2.5vmin;
+    font-size: .7em;
     font-weight: bold;
     line-height: 1.5em;
     text-align: justify;
@@ -230,19 +231,6 @@ section#points{
 
 .winning-message.show {
     display: flex;
-}
-
-@media screen and (max-width: 360px){
-    p#gameRules{
-        font-size: 3.9vmin;
-    }
-}
-
-@media screen and (max-width: 500px){
-    p#gameRules{
-        font-size: 3.4vmin;
-        font-weight: bolder;
-    }
 }
 
 @media screen and (max-width: 525px){
