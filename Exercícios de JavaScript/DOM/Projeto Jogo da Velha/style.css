@@ -31,9 +31,9 @@ section#boxFeedback{
 div#container{
     background-color: #e1dcdc;
     width: 50vw;
-    min-width: 230px;
+    min-width: 290px;
     max-width: 600px;
-    height: 240px;
+    height: 250px;
     margin: 7px 23px 0px 23px;
     border-radius: 15px;
     display: flex;
