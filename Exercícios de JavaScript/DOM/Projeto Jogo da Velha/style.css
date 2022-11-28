@@ -31,9 +31,9 @@ section#boxFeedback{
 div#container{
     background-color: #e1dcdc;
     width: 50vw;
-    min-width: 290px;
+    min-width: 295px;
     max-width: 600px;
-    height: 250px;
+    height: 252px;
     margin: 7px 23px 0px 23px;
     border-radius: 15px;
     display: flex;
@@ -233,6 +233,12 @@ section#points{
 
 .winning-message.show {
     display: flex;
+}
+
+@media (max-width: 325px){
+    div#container{
+        min-width: 230px;
+    }
 }
 
 @media (max-width: 525px){
