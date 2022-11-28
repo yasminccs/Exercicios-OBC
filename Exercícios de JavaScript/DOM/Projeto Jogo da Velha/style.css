@@ -207,17 +207,18 @@ section#points{
     left: 0;
     right: 0;
     bottom: 0;
+    text-align: center;
     background-color: var(--bg-shadow);
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-size: 5rem;
+    font-size: 4rem;
     flex-direction: column;
 }
 
 .winning-message button {
     margin-top: 20px;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--color);
     background-color: var(--bg-color);
     border: 1px solid var(--color);
