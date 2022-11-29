@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armazenamento no Navegador</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recursos de Armazenamento no Navegador</h1>
+    <form>
+        <h2>Session Storage</h2>
+        <label for="name">Nome: </label>
+        <input type="text" name="nameFirst" id="nameFirst">
+        <button type="button" id="sendNameFirst">Enviar</button>
+        <button type="button" id="read">Ler</button>
+        <h2>Local Storage</h2>
+        <label for="lastName">Sobrenome: </label>
+        <input type="text" name="nameLast" id="nameLast">
+        <button type="button" id="sendNameLast">Enviar</button>
+        <button type="button" id="read2">Ler</button>
+        <h2>Cookies</h2>
+        <label for="age">Idade: </label>
+        <input type="number" name="age" id="age">
+        <button type="button" id="sendAge">Enviar</button>
+    </form>
+
+    <script>
+        const name = document.querySelector('#nameFirst')
+        console.log(name.value)
+        const add = getA
+        document.querySelector('#sendNameFirst').addEventListener('click', function () {
+            const name = document.querySelector('#nameFirst')
+            sessionStorage.setItem('info', name.value)
+            name.value= ''
+        })
+
+        document.querySelector('#read').addEventListener('click', function () {
+            const info = sessionStorage.getItem('info')
+            alert(`Primeiro nome: ${info}`)
+        })
+
+        document.querySelector('#sendNameLast').addEventListener('click', function () {
+            const name = document.querySelector('#nameLast')
+            localStorage.setItem('text', name.value)
+            name.value = ''
+        })
+
+        document.querySelector('#read2').addEventListener('click', function () {
+            const text = localStorage.getItem('text')
+            alert(`Sobrenome: ${text}`)
+        })
+
+        document.querySelector('#sendAge').addEventListener('click', function () {
+            const age = document.querySelector('#age')
+            const cookieAge = `info=${age.value};`
+            const expiration = `expires=${new Date(2022, 11, 31)};`
+            const path = `path=/;`
+            document.cookie = cookieAge + expiration+ path
+            age.value = ''
+            console.log(document.cookie)
+        })
+
+    </script>
+</body>
+</html>
