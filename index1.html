@@ -5,81 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        section#boxFeedback{
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100vh;
-            width: 100vw;
-            background-color: #000000e3;
-        }
-
-        div#container{
-            background-color: #e1dcdc;
-            width: 500px;
-            height: 240px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        p.cntd {
-            margin-top: 25px;
-            font-weight: bold;
-        }
-
-        button#play {
-            padding: 8px 15px;
-            border-radius: 4px;
-            border: 1px solid black;
-            cursor: pointer;
-        }
-
-        input[name="player"] {
-            cursor: pointer;
-        }
-
-        section#boxFeedback{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
 </head>
 <body>
-    <h1>Olá, mundo.</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quae, magnam optio obcaecati corrupti deserunt. Minus reiciendis itaque iure sequi illum neque iste et obcaecati nostrum eligendi error quasi dolorum ipsa adipisci molestiae nesciunt saepe omnis, voluptate, temporibus ad maiores soluta sunt doloribus velit. Voluptatibus deleniti nesciunt nobis asperiores consequuntur praesentium, ratione earum ex velit aspernatur totam facere! Nobis, distinctio!</p>
-    <section class="lala" id="boxFeedback">
-        <div id="container">
-            <h2 id="titleBox">Você gostaria de jogar contra quem?</h2>
-            <p class="cntd">
-              <label><input type="radio" name="player" id="p1" value="0"> Um(a) amigo(a)</label>
-            </p>
-            <p class="cntd">
-              <label><input type="radio" name="player" id="c1" value="1"> Computador</label>
-            </p>
-            <p class="cntd">
-                <button id="play" type="button" onclick="fecho()">Play</button>
-            </p>
-        </div>
-      </section>
+    <h1>Testes</h1>
+    <script>
+     console.log(`Seja bem-vindo ao melhor site de investimentos da internet.
+Fique a vontade para investir seu dinheiro de maneira rentável.`) //template literals
 
-      <script>
-        function fecho() {
-            const boxFeedback = document.getElementById('boxFeedback')
-            boxFeedback.style.display = 'none'
-        }
-      </script>
+    const calc = a => console.log(`Seu dinheiro total multiplicado pelo retorno: ${a} x 2 = ${a*2}`)
+   calc(23000) //arrow functions
+
+   const personDatas = {
+    name: 'Joaquim',
+    age: 56,
+    investments: [23, 12, 5, 24, 50]
+   }
+
+   const { name } = personDatas
+   const { age } = personDatas
+
+   const a = [1, 2]
+
+   const att = a.reduce((acc, num) => {
+       return acc + num
+    }, 0)
+
+    console.log(att)
+   
+//    console.log(`Seu nome: ${name}
+// Idade: ${age}
+// Soma de todos os investimentos já feitos: ${totalInvestments(23, 12, 5, 24, 50)}`)
+
+    </script>
 </body>
 </html>
