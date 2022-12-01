@@ -13,7 +13,7 @@
 Fique a vontade para investir seu dinheiro de maneira rentável.`) //template literals
 
     const calc = a => console.log(`Seu dinheiro total multiplicado pelo retorno: ${a} x 2 = ${a*2}`)
-   calc(23000) //arrow functions
+   calc(230) //arrow functions
 
    const personDatas = {
     name: 'Joaquim',
@@ -23,18 +23,30 @@ Fique a vontade para investir seu dinheiro de maneira rentável.`) //template li
 
    const { name } = personDatas
    const { age } = personDatas
+   const { investments } = personDatas //desestruturação
 
-   const a = [1, 2]
+   function total(...investments) {
+    return investments.reduce((acc, num) => acc + num, 0)
+   } //operador spread + rest params
 
-   const att = a.reduce((acc, num) => {
-       return acc + num
-    }, 0)
+   console.log(`Seu nome: ${name}
+Idade: ${age} anos
+Soma de todos os investimentos já feitos: R$${total(...investments)} reais`)
 
-    console.log(att)
-   
-//    console.log(`Seu nome: ${name}
-// Idade: ${age}
-// Soma de todos os investimentos já feitos: ${totalInvestments(23, 12, 5, 24, 50)}`)
+
+//encadeamento opcional
+//console.log(personDatas.city[0].ddd) // "Uncaught TypeError: Cannot read properties of undefined (reading '0')"
+
+console.log(personDatas?.city?.[0]?.ddd) //undefined
+
+
+let a = 0
+    b = 'arroz'
+    c = 'teste'
+
+console.log(a || c || b) //short-circuit => retorna 'teste'
+console.log(a ?? c ?? b) //retorna 0
+
 
     </script>
 </body>
