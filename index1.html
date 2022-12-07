@@ -25,7 +25,7 @@ Fique a vontade para investir seu dinheiro de maneira rentável.`) //template li
    const { age } = personDatas
    const { investments } = personDatas //desestruturação
 
-   function total(...investments) {
+   const total = (...investments) => {
     return investments.reduce((acc, num) => acc + num, 0)
    } //operador spread + rest params
 
@@ -33,14 +33,13 @@ Fique a vontade para investir seu dinheiro de maneira rentável.`) //template li
 Idade: ${age} anos
 Soma de todos os investimentos já feitos: R$${total(...investments)} reais`)
 
-
 //encadeamento opcional
 //console.log(personDatas.city[0].ddd) // "Uncaught TypeError: Cannot read properties of undefined (reading '0')"
 
 console.log(personDatas?.city?.[0]?.ddd) //undefined
 
 
-let a = 0
+let a = 0 //false
     b = 'arroz'
     c = 'teste'
 
