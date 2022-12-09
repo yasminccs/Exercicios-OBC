@@ -40,12 +40,8 @@ input.addEventListener('keyup', () => {
   }
 })
 
-document.querySelector('#equal').addEventListener('click', calculate)
-
-function calculate(){
-  const result = eval(input.value)
-  input.value = result
-}
+import { calculate } from "./result.js"
+calculate()
 
 import { copy } from "./copy.js"
 copy()
