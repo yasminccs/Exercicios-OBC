@@ -5,5 +5,3 @@ function msg(){
 function send(){
     console.log('Importa default non-inline')
 }
-
-export { msg, send }

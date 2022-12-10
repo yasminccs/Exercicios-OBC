@@ -1,7 +1,7 @@
-export function mesage(){
+function mesage(){
     console.log('Import inline')
 }
 
-export default function salve(){
+function salve(){
     console.log('Importa default inline')
 }
