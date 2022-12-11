@@ -1,0 +1,14 @@
+{
+  "name": "datas",
+  "version": "1.0.0",
+  "description": "primeiro exercicio usando packages npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yasmin",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.7"
+  }
+}
