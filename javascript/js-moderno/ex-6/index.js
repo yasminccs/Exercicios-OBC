@@ -1,6 +1,17 @@
 const dayjs = require("dayjs")
-var relativeTime = require('dayjs/plugin/relativeTime')
-dayjs.extend(relativeTime)
 
-console.log(dayjs('2002-05-14').format('DD/MM/YYYY')) //exibir a data no formato que quiser
-console.log(days('2002-05-14').fromNow(true))
+function dateBirth (date) {
+
+    const nowDate = dayjs()
+
+    const nowAge = nowDate.diff(date, 'year')
+    const nextBirthday = dayjs(date).add((nowAge + 1), 'year')
+    const missDays = nextBirthday.diff(dayjs(), 'day').toString()
+
+    return console.log(`Você tem: ${nowAge} anos.
+Seu próximo aniversário será em: ${nextBirthday.format('DD/MM/YYYY')}.
+Faltam: ${missDays} dias para seu aniversário.`)
+}
+dateBirth('2002-05-14')
+
+    
