@@ -1,5 +1,6 @@
 //const dayjs = require("dayjs")
 import dayjs from "dayjs"
+import "./styles/index.css"
 
 function dateBirth (date) {
 
