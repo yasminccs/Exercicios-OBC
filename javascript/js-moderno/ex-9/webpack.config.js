@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     entry: {
-        build: './src/index.js'
+        index: './src/index.js'
     },
     mode: "production",
     output: {
@@ -12,6 +12,9 @@ module.exports = {
     },
     module: {
         rules: [{
+            test: /\.css$/,
+            use: [MiniCssExtractPlugin.loader, 'css-loader']
+        }, {
             test: /\.m?js$/,
             exclude: /(node_modules|bower_components)/,
             use: {
@@ -19,12 +22,8 @@ module.exports = {
                 options: {
                     presets: ['@babel/preset-env']
                 }
-            }
+}
         }],
-        rules: [{
-            test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
-        }]
     },
     plugins: [
         new MiniCssExtractPlugin()
