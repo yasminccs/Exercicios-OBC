@@ -11,11 +11,12 @@ class Product {
     }
 
     calculateDiscont(percent){
-        this.price = this.price*(percent/100)
+        return this.price*(percent/100)
     }
 }
 
 const productClient = new Product('Paleta de blush', 'possui 4 cores', 60)
 productClient.addInStock(20)
-productClient.calculateDiscont(25)
 console.log(productClient)
+const valuePercent = productClient.calculateDiscont(25)
+console.log(`Valor com desconto: R$${valuePercent}`)
