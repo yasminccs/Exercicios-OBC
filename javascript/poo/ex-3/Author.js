@@ -1,6 +1,6 @@
-const Post = require("./Post")
+const Post = require("./Post.js")
 
-class Author {
+class Author{
     constructor(name){
         this.name = name
         this.posts = []

@@ -1,11 +1,20 @@
-const Author = require('./Author')
+const Author = require('./Author.js')
 
-const john = new Author("John Doe")
+const johnDoe = new Author('John Doe')
+const post = johnDoe.newPost('Como fazer bolo', 'Vamos começar pegando a farinha...')
 
-const post = john.writePost("Título do Post", "Lorem ipsum dolor sic amet ...")
+const fulano = new Author('Fulano de Tal')
+const post1 = fulano.newPost('DIY de copo', 'Comece pegando uma garrafa pet e tesoura....')
 
-post.addComment("Isaac", "Muito bom!")
-post.addComment("Lucas", "Achei interessante.")
+post1.addComment('João', 'Incrível!!')
+post1.addComment('Karina', 'Genial demais.')
+post1.addComment('Patricia', 'Vou fazer hoje mesmo.')
 
-console.log(john)
+post.addComment('Maria', 'Muito boa a receita!')
+post.addComment('Lucas', 'Bem fácil mesmo.')
+post.addComment('Kebler', 'Adorei.')
+
+console.log(johnDoe)
 console.log(post)
+console.log(fulano)
+console.log(post1)

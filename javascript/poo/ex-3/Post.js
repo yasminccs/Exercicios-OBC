@@ -1,4 +1,4 @@
-const Comment = require('./Comment')
+const Comment = require("./Comment.js")
 
 class Post {
     constructor(title, body, author){
