@@ -1,3 +1,5 @@
+//ENCAPSULAMENTO
+
 class Account {
     #password
     #balance
