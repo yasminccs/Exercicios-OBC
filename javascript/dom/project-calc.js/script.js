@@ -75,16 +75,19 @@ function calculate(){
   input.value = result
 }
 
-document.querySelector('#copyToClipboard').addEventListener('click', ev => {
-  const btnCopy = ev.target
-  if(btnCopy.innerText === 'Copy'){
-    btnCopy.innerText = 'Copied!'
-    btnCopy.classList.add('success')
-    navigator.clipboard.writeText(input.value)
-   } else {
-    btnCopy.innerText = 'Copy'
-    btnCopy.classList.remove('success')
-   }
+document.querySelector('#copyToClipboard').addEventListener('click', () => {
+  navigator.clipboard.writeText(input.value)
+  alert('Copiado para a área de transferência com sucesso.')
+
+  // if(btnCopy.innerText === 'Copy'){
+  //   btnCopy.innerText = 'Copied!'
+  //   btnCopy.classList.add('success')
+  //   navigator.clipboard.writeText(input.value)
+  //   alert('Copiado para a área de transferência com sucesso.')
+  //  } else {
+  //   btnCopy.innerText = 'Copy'
+  //   btnCopy.classList.remove('success')
+  //  }
 })
 
 const main = document.querySelector('main')
