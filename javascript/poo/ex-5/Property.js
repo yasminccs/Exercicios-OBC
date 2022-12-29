@@ -32,7 +32,6 @@ const newHouse = new House(30, 150000)
 //console.log(newHouse)
 //console.log(newHouse.getArea())
 
-
 const newApartment = new Apartment('401', 60, 120000)
 console.log(newApartment)
 console.log(newApartment.getArea())

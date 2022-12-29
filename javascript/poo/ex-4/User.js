@@ -28,5 +28,5 @@ const user = {
 }
 
 const usuario = new Account(user)
-
-console.log(usuario.getBalance("yasmin@email.com", "123456"))
+console.log(usuario)
+//console.log(usuario.getBalance("yasmin@email.com", "123456"))
