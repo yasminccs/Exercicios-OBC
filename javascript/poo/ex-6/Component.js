@@ -32,29 +32,33 @@ class Input extends Component{
     }
 }
 
-// class Label extends Component{
-//     constructor(text, element, id){
-//         super(element, id)
-//         this.text = text
+class Label extends Component{
+    constructor(text, element, id){
+        super(element, id)
+        this.text = text
 
-//         this.element.innerText = this.text
-//     }
-// }
+        this.element.innerText = this.text
+    }
+}
 
-// class Form extends Component{
-//     constructor(action, method, element, id){
-//         super(element, id)
-//         this.action = action
-//         this.method = method
+class Form extends Component{
+    constructor(action, method, element, id){
+        super(element, id)
+        this.action = action
+        this.method = method
 
-//         this.element.action = this.action
-//         this.element.method = this.method
-//     }
-// }
+        this.element.action = this.action
+        this.element.method = this.method
+    }
 
-// const newLabel = new Label('Idade: ', 'label', 'labelTest')
-// newLabel.render()
-// console.log(newLabel)
+    addElements(element){
+        return this.element.append(element)
+    }
+}
+
+const newLabel = new Label('Idade: ', 'label', 'labelTest')
+newLabel.render()
+console.log(newLabel)
 
 const newInput = new Input('number', '123', 'input', 'inputTest')
 newInput.render()
@@ -63,9 +67,8 @@ console.log(newInput)
 const idAcc = newInput.accessId()
 console.log(idAcc)
 
-// const newForm = new Form('cadastro.js', 'post', 'form', 'formTest')
-// newForm.render()
-// console.log(newForm)
-
+const newForm = new Form('cadastro.js', 'post', 'form', 'formTest')
+newForm.render()
+console.log(newForm)
 
 //module.exports = Component
