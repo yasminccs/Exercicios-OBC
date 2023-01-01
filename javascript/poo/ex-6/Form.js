@@ -6,6 +6,8 @@ export class Form extends Component{
     }
 
     addChildren(...children){
-        
+        children.forEach(child => {
+            this.getElementAccess().appendChild(child.getElementAccess()) //this.getElementAccess é o próprio form e child.getElementAccess é cada um dos elementos adicionados aos form da array
+        })
     }
 }
