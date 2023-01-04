@@ -1,12 +1,14 @@
-export class Character{
-    constructor(name, lifeScore, attack, defense){
+class Character{
+    constructor(name, life, attack, defense){
         this.name = name
-        this.lifeScore = lifeScore
+        this.life = life
         this.attack = attack
         this.defense = defense
     }
 
-    attackStart(targetCharacter){ //personagem alvo de outra instancia de Character
-        return Number(targetCharacter.lifeScore - (this.attack - targetCharacter.defense))
+    attackStart(targetCharacter){
+        return Number(targetCharacter.life -= (this.attack - targetCharacter.defense))
     }
 }
+
+module.exports = Character

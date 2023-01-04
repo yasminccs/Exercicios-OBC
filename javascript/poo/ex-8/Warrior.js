@@ -1,25 +1,30 @@
-import { Character } from "./Character.js";
+const Character = require("./Character.js")
 
-export class Warrior extends Character{
-    constructor(shieldScore, position, name, lifeScore, attack, defense){
-        super(name, lifeScore, attack, defense)
+class Warrior extends Character{
+    constructor(name, life, attack, defense, shieldScore){
+        super(name, life, attack, defense)
         this.shieldScore = shieldScore
-        this.position = position
+        this.position = 'attacking'
     }
 
-    attackStart(){
-        if (this.position === 'ataque'){
-            console.log('Modo de ataque.')
+    attackStart(targetCharacter){
+        if (this.position === 'attacking'){
+            super.attack(targetCharacter)
         } else {
-            console.log('Modo defesa.')
+            return 'Modo defesa'
         }
     }
 
     alternativePosition(){
-        if (this.position === 'defesa'){
-            return Number(this.shieldScore + this.defense)
+        if (this.position === 'attacking'){
+            this.position = 'defesa'
+            return Number(this.defense += this.shieldScore)
         } else {
+            this.position = 'attacking'
+            this.defense -= this.shieldScore
             return this.defense
         }
     }
 }
+
+module.exports = Warrior
