@@ -5,11 +5,11 @@ class Wallet{
     #username
 
     constructor(){
-        this.#amount = 100.99 * 100
+        this.#amount = 100.99 * 100 //retorna 10099
     }
 
     get amount(){
-        return this.#amount / 100
+        return this.#amount / 100 //volta 100.99
     }
 
     set username(newUsername){
