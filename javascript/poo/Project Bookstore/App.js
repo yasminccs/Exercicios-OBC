@@ -68,7 +68,7 @@ module.exports = class App {
         return App.#database.find('orders')
     }
 
-    getShowStorage(){
+    showDatabase(){
         return App.#database.showStorage()
     }
 }
