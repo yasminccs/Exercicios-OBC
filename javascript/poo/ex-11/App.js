@@ -19,16 +19,12 @@ class App {
         }
     }
 
-    static findUserByEmail(email){
-        App.#allUsers.find(e => {
-            const lal = e.email === email
-            if(lal){
-                console.log('Encontrado')
-            } else {
-                console.log('Não encontrado')
-            }
-        })
-    }
+    // static findUserByEmail(email){
+    //     const findEmail = App.#allUsers.find(e => e.email === email)
+    //     if (findEmail){
+            
+    //     }
+    // }
 
     get getUsers(){
         return App.#allUsers
@@ -41,4 +37,3 @@ App.newUser('Yasmin', 'yas@email.com')
 // App.newUser('Yasmin', 'yas@email.com')
 
 console.log(newApp.getUsers)
-console.log(App.findUserByEmail('yas@gmail.com'))
