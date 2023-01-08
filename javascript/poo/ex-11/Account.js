@@ -1,26 +1,35 @@
-const Deposit = require("./entities/Deposit")
-const Loan = require("./entities/Loan")
-
 module.exports = class Account {
     #sale
-
     constructor(user){
+        this.#sale = 0
         this.user = user
         this.allDeposits = []
         this.allLoans = []
         this.allTransfers = []
     }
 
-    newDeposit(value){
-        this.#sale += value
-        this.allDeposits.push(new Deposit(value))
+    get sale(){
+        return this.#sale
     }
 
-    newLoan(value, parcels){
-        this.#sale += value
-        this.allLoans.push(new Loan(value, parcels))
+    newDeposit(deposit){
+        this.#sale += deposit.value
+        this.allDeposits.push(deposit)
     }
 
-   
+    newLoan(loan){
+        this.#sale += loan.loanValue
+        this.allLoans.push(loan)
+    }
+
+    newTransfer(transfer){
+        if (transfer.senderUser.email === this.user.email) {
+            this.#sale -= transfer.value
+            this.allTransfers.push(transfer)
+        } else if (transfer.receiveUser.email === this.user.email){
+            this.#sale += transfer.value
+            this.allTransfers.push(transfer)
+        }
+    }
 }
 
