@@ -22,7 +22,7 @@ class App {
     static findUserByEmail(email){
         App.#allUsers.find(e => {
             if (e.email === email){
-                console.log('Encontrado')
+                return e.email
             } else {
                 console.log('O email do usuário informado não foi encontrado.')
             }
@@ -37,7 +37,6 @@ class App {
 const newApp = new App()
 App.newUser('Yasmin', 'yas@email.com')
 console.log(newApp.getUsers)
-console.log(App.findUserByEmail('yaslla@email.com'))
+console.log(App.findUserByEmail('yas@email.com'))
 
 //const newApp2 = new App()
-//App.newUser('Yasmin', 'yas@email.com')
