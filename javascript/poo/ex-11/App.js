@@ -5,6 +5,8 @@ const Transfer = require("./entities/Transfer")
 const Installment = require("./entities/Installment")
 const Loan = require("./entities/Loan")
 
+//NÃO ESQUECER DO MODULE DO APP
+
 class App {
     static #allUsers = []
 
@@ -20,23 +22,40 @@ class App {
     }
 
     static findUserByEmail(email){
-        App.#allUsers.find(e => {
-            if (e.email === email){
-                return e.email
-            } else {
-                console.log('O email do usuário informado não foi encontrado.')
-            }
-        })
+        const existsUser =  App.#allUsers.find(e => e.email === email)
+        if (existsUser){
+            return `Nome completo do usuário informado: ${existsUser.fullName}`
+        } else {
+            return 'O email do usuário informado não foi encontrado.'
+        }
     }
+
+    static deposits(user, value){
+        const deposit = new Deposit(value)
+        const addDeposit = new Account(user)
+        addDeposit.newDeposit(deposit)
+    }
+
+    static transfers(senderUser, receiveUser, value){
+        const transfer = new Transfer(senderUser, receiveUser, value)
+        const addTransfer = new Account(receiveUser)
+        addTransfer.newTransfer(transfer)
+    }
+
+    static loans(user, value, parcels){
+        const loan = new Loan(value, parcels)
+        const addLoan = new Account(user)
+        addLoan.newLoan(loan)
+    }
+
+    //add metodo para alterar taxa dos emprestimos
 
     get getUsers(){
         return App.#allUsers
     }
 }
 
-const newApp = new App()
-App.newUser('Yasmin', 'yas@email.com')
-console.log(newApp.getUsers)
-console.log(App.findUserByEmail('yas@email.com'))
-
-//const newApp2 = new App()
+// const newApp = new App()
+// App.newUser('Yasmin', 'yas@email.com')
+// console.log(newApp.getUsers)
+// console.log(App.findUserByEmail('yas@email.com'))
