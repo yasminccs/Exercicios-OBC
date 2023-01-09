@@ -1,61 +1,58 @@
 const User = require("./entities/User")
-const Account = require("./Account")
 const Deposit = require("./entities/Deposit")
 const Transfer = require("./entities/Transfer")
-const Installment = require("./entities/Installment")
 const Loan = require("./entities/Loan")
 
-//NÃO ESQUECER DO MODULE DO APP
-
-class App {
+module.exports = class App {
     static #allUsers = []
 
+    static findEmail(email){
+        const emailUserExists = this.#allUsers.find(user => user.email === email)
+        return emailUserExists ?? null
+    }
+
     static newUser(fullName, email){
-        const emailUserExists = App.#allUsers.find(e => e.email === email)
+        const emailUserExists = App.findEmail(email)
         if(!emailUserExists){
-            const newUser = new User(fullName, email)
-            App.#allUsers.push(newUser)
+            this.#allUsers.push(new User(fullName, email))
             console.log('Conta criada com sucesso!')
         } else {
             console.log('O email informado já está sendo utilizado.')
         }
     }
 
-    static findUserByEmail(email){
-        const existsUser =  App.#allUsers.find(e => e.email === email)
-        if (existsUser){
-            return `Nome completo do usuário informado: ${existsUser.fullName}`
-        } else {
-            return 'O email do usuário informado não foi encontrado.'
+    static deposits(email, value){
+        const findUser = App.findEmail(email)
+        if (findUser){
+            const deposit = new Deposit(value)
+            findUser.account.newDeposit(deposit)
         }
     }
 
-    static deposits(user, value){
-        const deposit = new Deposit(value)
-        const addDeposit = new Account(user)
-        addDeposit.newDeposit(deposit)
-    }
-
     static transfers(senderUser, receiveUser, value){
-        const transfer = new Transfer(senderUser, receiveUser, value)
-        const addTransfer = new Account(receiveUser)
-        addTransfer.newTransfer(transfer)
+        const findReceive = App.findEmail(receiveUser)
+        const findSender = App.findEmail(senderUser)
+        if (findSender && findReceive){
+            const transfer = new Transfer(findSender, findReceive, value)
+            findSender.account.newTransfer(transfer)
+            findReceive.account.newTransfer(transfer)
+        }
+        
     }
 
-    static loans(user, value, parcels){
-        const loan = new Loan(value, parcels)
-        const addLoan = new Account(user)
-        addLoan.newLoan(loan)
+    static loans(email, value, parcels){
+        const findUser = App.findEmail(email)
+        if (findUser){
+            const loan = new Loan(value, parcels)
+            findUser.account.newLoan(loan)
+        }
     }
 
-    //add metodo para alterar taxa dos emprestimos
+    static changeLoanRate(newRate){
+        Loan.newRate = newRate
+    }
 
     get getUsers(){
         return App.#allUsers
     }
 }
-
-// const newApp = new App()
-// App.newUser('Yasmin', 'yas@email.com')
-// console.log(newApp.getUsers)
-// console.log(App.findUserByEmail('yas@email.com'))
